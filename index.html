@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>我的课程表</title>
+  <style>
+    :root{font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:#17233d;background:#f5f7fb;font-synthesis:none}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh} button,input,select{font:inherit} button{cursor:pointer}
+    .hidden{display:none!important} .login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 15%,#d8e2ff 0,transparent 34%),radial-gradient(circle at 85% 80%,#d8f3ef 0,transparent 28%),#f5f7fb}
+    .login-card{width:min(100%,440px);background:#fff;border:1px solid #e5eaf3;border-radius:24px;padding:38px;box-shadow:0 24px 70px rgba(30,47,87,.12)}
+    .brand{display:flex;align-items:center;gap:11px;color:#365ac8;font-weight:800;letter-spacing:.06em;font-size:14px}.brand-mark{width:39px;height:39px;border-radius:12px;background:#365ac8;color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 7px 18px rgba(54,90,200,.25)}
+    h1{font-size:30px;letter-spacing:-.03em;margin:28px 0 8px}.login-lead{color:#66748e;font-size:14px;line-height:1.7;margin:0 0 30px}
+    .field{margin:0 0 18px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px;color:#34415b}.field input{width:100%;height:48px;padding:0 14px;border:1px solid #d5ddea;border-radius:11px;background:#fbfcfe;outline:none;transition:.2s}.field input:focus{border-color:#5775d6;box-shadow:0 0 0 4px #e8edff;background:white}
+    .primary{width:100%;height:48px;border:0;border-radius:11px;background:#365ac8;color:white;font-weight:750;box-shadow:0 8px 20px rgba(54,90,200,.2)}.primary:hover{background:#294cb5}.primary:disabled{opacity:.65;cursor:wait}
+    .error{min-height:22px;color:#c43d4c;font-size:13px;margin:10px 0 0}.login-foot{border-top:1px solid #edf0f5;margin-top:20px;padding-top:18px;font-size:12px;color:#8792a7;text-align:center}
+    .app{max-width:1480px;margin:auto;padding:28px 30px 72px}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:28px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#5872b9;font-weight:800;margin:0 0 8px}.page-title{font-size:31px;line-height:1.2;margin:0 0 9px}.subtitle{margin:0;color:#6c7890;font-size:14px}.top-actions{display:flex;align-items:center;gap:12px}.student-chip{background:#fff;border:1px solid #e3e8f1;border-radius:12px;padding:10px 14px;color:#394864;font-size:13px;white-space:nowrap}.student-chip strong{display:block;color:#17233d;font-size:14px}.ghost{height:42px;border:1px solid #dce3ee;background:#fff;border-radius:11px;color:#42516e;padding:0 16px;font-weight:700}.ghost:hover{background:#f0f3fb}
+    .summary{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-bottom:20px}.summary-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:21px 24px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.summary-card strong{font-size:14px}.summary-card p{margin:9px 0 0;color:#6b7892;font-size:13px;line-height:1.65}.summary-card.accent{background:linear-gradient(120deg,#365ac8,#5276d9);color:#fff;border:0}.summary-card.accent p{color:#e9eeff}.summary-card.accent .big{font-size:26px;font-weight:800;line-height:1.2;margin-top:5px}
+    .schedule-panel{background:#fff;border:1px solid #e5eaf3;border-radius:18px;overflow:hidden;box-shadow:0 5px 22px rgba(26,43,83,.04)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;border-bottom:1px solid #edf0f5}.panel-head h2{font-size:18px;margin:0 0 5px}.panel-head p{font-size:12px;color:#8792a7;margin:0}.week-picker{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#53627c;white-space:nowrap}.week-picker select{border:1px solid #dce3ee;background:#f9fbff;color:#243456;border-radius:9px;padding:9px 30px 9px 11px;outline:none}
+    .table-wrap{overflow-x:auto;scrollbar-color:#c9d5ef transparent}.timetable{border-collapse:separate;border-spacing:0;width:100%;min-width:1020px;table-layout:fixed}.timetable th,.timetable td{border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;vertical-align:top}.timetable th:last-child,.timetable td:last-child{border-right:0}.timetable tr:last-child td{border-bottom:0}.timetable thead th{height:48px;background:#f9faff;text-align:center;padding:14px 6px;color:#465570;font-size:13px;font-weight:750}.timetable thead th:first-child{width:104px}.timetable tbody th{background:#fcfdff;border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;color:#4b5a75;font-size:12px;font-weight:800;text-align:center;padding:18px 8px;line-height:1.5}.timetable tbody tr:last-child th{border-bottom:0}.timetable td{height:122px;padding:8px;background:#fff}.timetable td.empty{background:#fff}.course{border-left:3px solid var(--tone);border-radius:8px;padding:10px 9px 11px;background:var(--tint);margin-bottom:7px;min-height:97px}.course:last-child{margin-bottom:0}.course-name{font-size:13px;font-weight:800;line-height:1.4;margin:0 0 8px;color:#243455}.course-meta{display:flex;align-items:flex-start;gap:5px;font-size:11px;line-height:1.45;color:#5e6e87;margin:3px 0}.course-meta svg{width:13px;height:13px;flex:none;margin-top:1px}.course-code{font-size:10px;color:#8390a8;margin-top:7px}.course[data-tone="blue"]{--tone:#4a80db;--tint:#edf4ff}.course[data-tone="amber"]{--tone:#e4a33c;--tint:#fff7e9}.course[data-tone="violet"]{--tone:#9a70d2;--tint:#f6efff}.course[data-tone="indigo"]{--tone:#6674d5;--tint:#f0f1ff}.course[data-tone="teal"]{--tone:#35a99d;--tint:#eaf9f6}.course[data-tone="rose"]{--tone:#dc7a88;--tint:#fff0f2}
+    .below{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.note-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:22px 24px}.note-card h2{font-size:16px;margin:0 0 13px}.note-card ul{margin:0;padding-left:20px;color:#5e6e87;font-size:13px;line-height:1.75}.note-card li+li{margin-top:7px}.muted{color:#8b97aa}.site-foot{font-size:12px;color:#91a0b6;margin:23px 0 0;text-align:center}
+    @media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.summary,.below{grid-template-columns:1fr}.panel-head{align-items:flex-start;flex-direction:column}.page-title{font-size:27px}.login-card{padding:30px 24px}}
+    @media print{.login-screen,.ghost,.week-picker,.site-foot{display:none!important}.app{padding:0}.summary{display:none}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <main id="login" class="login-screen">
+    <form id="login-form" class="login-card" autocomplete="on">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 课程表</span></div>
+      <h1>欢迎回来</h1>
+      <p class="login-lead">登录后查看课程安排、上课地点与调课提示。</p>
+      <div class="field"><label for="username">用户名</label><input id="username" name="username" type="text" autocomplete="username" required autofocus></div>
+      <div class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button id="login-button" class="primary" type="submit">进入课程表</button>
+      <p id="login-error" class="error" role="alert" aria-live="polite"></p>
+      <div class="login-foot">2026–2027 学年 · 第 1 学期</div>
+    </form>
+  </main>
+
+  <main id="app" class="app hidden" aria-hidden="true">
+    <header class="topbar">
+      <div><p class="eyebrow">ACADEMIC SCHEDULE</p><h1 class="page-title" id="page-title"></h1><p class="subtitle" id="term"></p></div>
+      <div class="top-actions"><div class="student-chip"><strong id="student"></strong><span id="student-id"></span></div><button id="logout" class="ghost" type="button">退出登录</button></div>
+    </header>
+    <section class="summary" aria-label="课表概览">
+      <div class="summary-card accent"><strong>当前视图</strong><div class="big" id="week-summary"></div><p id="course-summary"></p></div>
+      <div class="summary-card"><strong>查看提示</strong><p>选择周次后只显示该周的课程。课表依据所提供的 PDF 整理，临时调课请以教务系统最新通知为准。</p></div>
+    </section>
+    <section class="schedule-panel" aria-labelledby="schedule-heading">
+      <div class="panel-head"><div><h2 id="schedule-heading">每周课表</h2><p>手机上可左右滑动查看完整星期安排</p></div><label class="week-picker" for="week">查看周次 <select id="week"><option value="0">全部周次</option></select></label></div>
+      <div class="table-wrap"><table class="timetable"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+    </section>
+    <div class="below"><section class="note-card"><h2>待定课程</h2><ul id="unscheduled"></ul></section><section class="note-card"><h2>调课提示</h2><ul id="changes"></ul></section></div>
+    <p class="site-foot">课程信息根据提供的课表 PDF 整理 · 请以学校最新安排为准</p>
+  </main>
+  <script>
+    "use strict";
+    const encrypted = {"salt":"NPYe1C7691WxLdFAHUGnSg==","iv":"Vg4MsQy83TZqdAHj","iterations":310000,"data":"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"};
+    const $ = id => document.getElementById(id);
+    let schedule = null;
+    const icon = kind => {
+      const path = kind === "pin" ? '<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>' : '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>';
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+    };
+    const decode = value => Uint8Array.from(atob(value), char => char.charCodeAt(0));
+    async function unlock(password) {
+      const bytes = new TextEncoder().encode(password);
+      const source = await crypto.subtle.importKey("raw", bytes, "PBKDF2", false, ["deriveKey"]);
+      const key = await crypto.subtle.deriveKey({name:"PBKDF2", salt:decode(encrypted.salt), iterations:encrypted.iterations, hash:"SHA-256"}, source, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+      const plain = await crypto.subtle.decrypt({name:"AES-GCM", iv:decode(encrypted.iv)}, key, decode(encrypted.data));
+      return JSON.parse(new TextDecoder().decode(plain));
+    }
+    function putText(id, value){$(id).textContent = value;}
+    function make(tag, className, textValue){const node=document.createElement(tag);if(className)node.className=className;if(textValue!==undefined)node.textContent=textValue;return node;}
+    function addMeta(parent, kind, label){const row=make("div","course-meta");row.innerHTML=icon(kind);row.append(document.createTextNode(label));parent.append(row);}
+    function drawCourses(week){
+      const body=$("table-body");body.replaceChildren();
+      let count=0;
+      for(const slot of schedule.slots){
+        const row=document.createElement("tr");row.append(make("th","",slot.label));
+        for(let day=1;day<=7;day++){
+          const cell=document.createElement("td");
+          const items=schedule.courses.filter(course=>course.day===day&&course.slot===slot.id&&(week===0||course.weekNumbers.includes(week)));
+          if(!items.length)cell.className="empty";
+          for(const course of items){
+            count++;
+            const card=make("article","course");card.dataset.tone=course.tone;
+            card.append(make("p","course-name",course.name));
+            addMeta(card,"calendar",`${course.weeks} · ${course.periods}`);
+            addMeta(card,"pin",course.room);
+            card.append(make("div","course-code",`课程代码 ${course.code}`));
+            cell.append(card);
+          }
+          row.append(cell);
+        }
+        body.append(row);
+      }
+      putText("week-summary",week===0?"全部周次":`第 ${week} 周`);
+      putText("course-summary",week===0?"浏览学期内所有课程安排":`本周共 ${count} 项课程安排`);
+    }
+    function render(data){
+      schedule=data;
+      putText("page-title",data.title);putText("term",data.term);putText("student",data.student);putText("student-id",data.studentId);
+      const head=$("table-head");head.replaceChildren();const tr=document.createElement("tr");tr.append(make("th","","节次 / 星期"));for(const day of data.days)tr.append(make("th","",day));head.append(tr);
+      const picker=$("week");for(let week=1;week<=16;week++){const option=document.createElement("option");option.value=String(week);option.textContent=`第 ${week} 周`;picker.append(option);}
+      for(const note of data.unscheduled)$("unscheduled").append(make("li","",note));
+      for(const note of data.changes)$("changes").append(make("li","",note));
+      drawCourses(0);
+      $("login").classList.add("hidden");$("app").classList.remove("hidden");$("app").removeAttribute("aria-hidden");$("password").value="";
+    }
+    $("login-form").addEventListener("submit",async event=>{
+      event.preventDefault();putText("login-error","");
+      const button=$("login-button");button.disabled=true;button.textContent="正在验证…";
+      try{
+        if($("username").value!=="ranqi")throw new Error("invalid");
+        render(await unlock($("password").value));
+      }catch(error){putText("login-error","用户名或密码不正确");$("password").value="";$("password").focus();}
+      finally{button.disabled=false;button.textContent="进入课程表";}
+    });
+    $("week").addEventListener("change",event=>drawCourses(Number(event.target.value)));
+    $("logout").addEventListener("click",()=>{schedule=null;$("table-body").replaceChildren();$("table-head").replaceChildren();$("unscheduled").replaceChildren();$("changes").replaceChildren();$("week").replaceChildren(new Option("全部周次","0"));$("app").classList.add("hidden");$("app").setAttribute("aria-hidden","true");$("login").classList.remove("hidden");$("login-form").reset();$("username").focus();});
+  </script>
+</body>
+</html>
