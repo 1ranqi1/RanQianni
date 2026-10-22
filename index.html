@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <title>我的学习空间</title>
   <style>
-    :root{font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:#17233d;background:#f5f7fb;font-synthesis:none}
+    :root{color-scheme:light;font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:#17233d;background:#f5f7fb;font-synthesis:none}
     *{box-sizing:border-box} body{margin:0;min-height:100vh} button,input,select{font:inherit} button{cursor:pointer}
     .hidden{display:none!important} .login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 15%,#d8e2ff 0,transparent 34%),radial-gradient(circle at 85% 80%,#d8f3ef 0,transparent 28%),#f5f7fb}
     .login-card{width:min(100%,440px);background:#fff;border:1px solid #e5eaf3;border-radius:24px;padding:38px;box-shadow:0 24px 70px rgba(30,47,87,.12)}
@@ -23,18 +23,24 @@
     .below{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.note-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:22px 24px}.note-card h2{font-size:16px;margin:0 0 13px}.note-card ul{margin:0;padding-left:20px;color:#5e6e87;font-size:13px;line-height:1.75}.note-card li+li{margin-top:7px}.muted{color:#8b97aa}.site-foot{font-size:12px;color:#91a0b6;margin:23px 0 0;text-align:center}
     .content-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:28px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.content-card h2{font-size:22px;margin:0 0 9px}.content-card p{color:#6b7892;font-size:14px;line-height:1.7;margin:0}.placeholder-card{min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.placeholder-badge{width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:#edf2ff;color:#365ac8;font-size:21px;font-weight:800;margin-bottom:20px}.settings-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}.time-setting{display:block;background:#f8faff;border:1px solid #e5eaf3;border-radius:12px;padding:13px}.time-setting span{display:block;font-size:13px;font-weight:750;color:#394864;margin-bottom:8px}.time-setting input{width:100%;height:38px;border:1px solid #d5ddea;border-radius:8px;background:#fff;padding:0 9px;color:#253553}.time-setting input:focus{outline:2px solid #b9c8f6;outline-offset:1px}.settings-status{margin-top:16px!important;font-size:12px!important;color:#5d708f!important}
     .summary{grid-template-columns:1fr}.schedule-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:16px;align-items:start}.schedule-layout .schedule-panel{min-width:0}.pending-card{position:sticky;top:16px}.pending-card h2{margin-bottom:12px}.pending-card ul{overflow-wrap:anywhere}
-    .timetable td{height:auto;padding:0}.period-grid{display:grid;grid-template-rows:repeat(var(--rows),100px);position:relative}.period-guide{grid-column:1;position:relative;border-bottom:1px dashed #dfe6f2;background:#fff;color:#a1aec2;font-size:10px;padding:6px 8px;text-align:right}.period-guide:last-of-type{border-bottom:0}.period-grid .course{grid-column:1;z-index:1;margin:5px;min-height:0;overflow:hidden;padding:8px}.period-grid .course-name{font-size:12px;margin-bottom:4px}.period-grid .course-meta{font-size:10px;margin:2px 0}.period-grid .course[data-duration="1"] .course-code{display:none}.period-list{padding:7px;min-height:100px}.period-list .course{min-height:0;margin:0 0 7px;padding:8px}.period-list .course:last-child{margin-bottom:0}.period-rail{display:flex;gap:3px;margin-top:6px}.period-rail span{flex:1;text-align:center;border:1px solid #cfd8e8;border-radius:5px;background:#fff;color:#8090aa;font-size:10px;font-weight:700}.period-rail span.active{background:var(--tone);border-color:var(--tone);color:#fff}
+    .summary{display:none}.app{padding-top:18px}.topbar{margin-bottom:17px}.main-nav{margin-bottom:10px}.panel-head{padding:13px 16px}.timetable{min-width:920px}.timetable thead th{height:42px;padding:6px 4px}.timetable thead th:first-child{width:92px}.timetable tbody th{padding:7px 4px;font-size:11px}.slot-time{font-size:10px;margin-top:3px}
+    .timetable td{height:auto;padding:0}.period-grid{display:grid;grid-template-rows:repeat(var(--rows),28px);position:relative}.period-guide{grid-column:1;position:relative;border-bottom:1px dashed #dfe6f2;background:#fff}.period-guide:last-of-type{border-bottom:0}.period-grid .course{grid-column:1;z-index:1;margin:2px;min-height:0;overflow:hidden;padding:3px 4px}.period-grid .course-name{font-size:10px;margin-bottom:1px;line-height:1.15}.period-grid .course-meta{font-size:9px;margin:1px 0;line-height:1.1}.period-grid .course-meta svg{width:9px;height:9px}.period-grid .course-code{display:none}.period-grid .course[data-duration="1"] .course-meta{display:none}.period-list{padding:5px;min-height:28px}.period-list .course{min-height:0;margin:0 0 5px;padding:6px}.period-list .course:last-child{margin-bottom:0}.period-rail{display:flex;gap:3px;margin-top:6px}.period-rail span{flex:1;text-align:center;border:1px solid #cfd8e8;border-radius:5px;background:#fff;color:#8090aa;font-size:10px;font-weight:700}.period-rail span.active{background:var(--tone);border-color:var(--tone);color:#fff}
+    .manual-time{display:flex;align-items:center;gap:6px}.manual-time input{width:55px;text-align:center}.manual-time b{font-size:18px;color:#586b8a}.time-setting .time-preview{min-height:16px}
     .time-dialog{width:min(92vw,640px);max-height:86vh;border:1px solid #e2e8f3;border-radius:18px;padding:24px;box-shadow:0 28px 80px rgba(23,35,61,.22)}.time-dialog::backdrop{background:rgba(21,32,55,.48)}.dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.dialog-head h2{font-size:21px;margin:0 0 7px}.dialog-head p{font-size:13px;color:#697994;line-height:1.6;margin:0}.time-dialog .settings-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px}.time-setting small{display:block;margin-top:7px;font-size:11px;color:#70829d}
-    .ddl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.ddl-count{font-size:12px;color:#4261ae;background:#edf2ff;border-radius:999px;padding:7px 12px;white-space:nowrap}.ddl-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;padding:20px;border:1px solid #e5eaf3;border-radius:14px;background:#f9fbff}.ddl-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:700;color:#34415b}.ddl-field input,.ddl-field textarea{width:100%;border:1px solid #d5ddea;border-radius:9px;background:#fff;padding:10px 12px;color:#253553;outline:none}.ddl-field input{height:42px}.ddl-field textarea{resize:vertical;min-height:85px}.ddl-field input:focus,.ddl-field textarea:focus{border-color:#5775d6;box-shadow:0 0 0 3px #e8edff}.ddl-wide,.ddl-actions{grid-column:1/-1}.ddl-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ddl-actions .primary{width:auto;padding:0 22px}.ddl-actions .settings-status{margin:0!important}.ddl-list{display:grid;gap:12px;margin-top:20px}.ddl-item{border:1px solid #e5eaf3;border-radius:14px;padding:17px 19px;background:#fff}.ddl-item.overdue{border-color:#efd1d5;background:#fffafa}.ddl-item-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.ddl-item h3{font-size:17px;margin:0 0 4px}.ddl-item-meta{font-size:12px;color:#71809b}.ddl-remaining{font-size:13px;font-weight:800;color:#365ac8;background:#edf2ff;border-radius:9px;padding:7px 10px;white-space:nowrap}.ddl-item.overdue .ddl-remaining{color:#ad4d59;background:#ffedf0}.ddl-content{font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0!important;color:#33435f!important}.ddl-address{font-size:12px;color:#61728f;overflow-wrap:anywhere}.ddl-address a{color:#365ac8}.ddl-item-actions{display:flex;gap:8px;margin-top:12px}.ddl-item-actions button{border:1px solid #dce3ee;background:#fff;color:#42516e;border-radius:8px;padding:6px 10px;font-size:12px}.ddl-empty{padding:45px 18px;text-align:center;color:#8792a7;border:1px dashed #d4ddea;border-radius:14px}
+    .ddl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.ddl-head-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}.small-primary{height:36px;border:0;border-radius:9px;background:#365ac8;color:#fff;font-size:13px;font-weight:750;padding:0 14px}.ddl-count{font-size:12px;color:#4261ae;background:#edf2ff;border-radius:999px;padding:7px 12px;white-space:nowrap}.ddl-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;padding:20px;border:1px solid #e5eaf3;border-radius:14px;background:#f9fbff}.ddl-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:700;color:#34415b}.ddl-field input,.ddl-field textarea{width:100%;border:1px solid #d5ddea;border-radius:9px;background:#fff;padding:10px 12px;color:#253553;outline:none}.ddl-field input{height:42px}.ddl-field textarea{resize:vertical;min-height:85px}.ddl-field input:focus,.ddl-field textarea:focus{border-color:#5775d6;box-shadow:0 0 0 3px #e8edff}.ddl-wide,.ddl-actions{grid-column:1/-1}.ddl-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ddl-actions .primary{width:auto;padding:0 22px}.ddl-actions .settings-status{margin:0!important}.ddl-list{display:grid;gap:12px;margin-top:20px}.ddl-item{border:1px solid #e5eaf3;border-radius:14px;padding:17px 19px;background:#fff}.ddl-item.overdue{border-color:#efd1d5;background:#fffafa}.ddl-item-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.ddl-item h3{font-size:17px;margin:0 0 4px}.ddl-item-meta{font-size:12px;color:#71809b}.ddl-remaining{font-size:13px;font-weight:800;color:#365ac8;background:#edf2ff;border-radius:9px;padding:7px 10px;white-space:nowrap}.ddl-item.overdue .ddl-remaining{color:#ad4d59;background:#ffedf0}.ddl-content{font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0!important;color:#33435f!important}.ddl-address{font-size:12px;color:#61728f;overflow-wrap:anywhere}.ddl-address a{color:#365ac8}.ddl-item-actions{display:flex;gap:8px;margin-top:12px}.ddl-item-actions button{border:1px solid #dce3ee;background:#fff;color:#42516e;border-radius:8px;padding:6px 10px;font-size:12px}.ddl-empty{padding:45px 18px;text-align:center;color:#8792a7;border:1px dashed #d4ddea;border-radius:14px}
+    .website-wrap{overflow-x:auto;margin-top:22px}.website-table{width:100%;min-width:600px;border-collapse:collapse;text-align:left}.website-table th,.website-table td{padding:13px 12px;border-bottom:1px solid #e5eaf3;font-size:13px}.website-table th{color:#66748e;background:#f9fbff}.website-table td{color:#394864}.website-table td:nth-child(2){overflow-wrap:anywhere}.website-table a{color:#365ac8;font-weight:700}.website-table .site-actions{white-space:nowrap;text-align:right}.site-actions button{border:0;background:transparent;color:#5872b9;font-size:12px;padding:4px}.website-add{margin-top:18px}.website-form{display:grid;grid-template-columns:1fr 1.5fr 1.5fr;gap:12px;margin-top:16px;padding:18px;border:1px solid #e5eaf3;border-radius:12px;background:#f9fbff}.website-form label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.website-form input{width:100%;height:40px;border:1px solid #d5ddea;border-radius:8px;padding:0 10px;background:#fff;color:#253553}.website-form-actions{grid-column:1/-1;display:flex;align-items:center;gap:10px}.website-status{font-size:12px;color:#61728f}.website-empty{padding:30px 12px;color:#8792a7;text-align:center}
+    html[data-theme="dark"]{color-scheme:dark;color:#e9eef8;background:#101827}html[data-theme="dark"] body{background:#101827}html[data-theme="dark"] .login-screen{background:radial-gradient(circle at 20% 15%,#22345d 0,transparent 35%),#101827}html[data-theme="dark"] .login-card,html[data-theme="dark"] .student-chip,html[data-theme="dark"] .schedule-panel,html[data-theme="dark"] .note-card,html[data-theme="dark"] .content-card,html[data-theme="dark"] .time-dialog,html[data-theme="dark"] .ddl-item,html[data-theme="dark"] .summary-card:not(.accent){background:#1a2638;border-color:#344358;color:#e9eef8;box-shadow:none}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] .page-title,html[data-theme="dark"] .student-chip strong{color:#f2f6ff}html[data-theme="dark"] .login-lead,html[data-theme="dark"] .subtitle,html[data-theme="dark"] .content-card p,html[data-theme="dark"] .note-card ul,html[data-theme="dark"] .panel-head p,html[data-theme="dark"] .dialog-head p,html[data-theme="dark"] .ddl-item-meta,html[data-theme="dark"] .ddl-address,html[data-theme="dark"] .site-foot,html[data-theme="dark"] .login-foot,html[data-theme="dark"] .settings-status,html[data-theme="dark"] .website-status{color:#acbad0!important}html[data-theme="dark"] .ghost,html[data-theme="dark"] .nav-button,html[data-theme="dark"] .week-controls button,html[data-theme="dark"] .ddl-item-actions button,html[data-theme="dark"] .week-picker select{background:#233149;border-color:#3a4b63;color:#dce8f8}html[data-theme="dark"] .nav-button.active,html[data-theme="dark"] .small-primary{background:#5577df;border-color:#5577df;color:#fff}html[data-theme="dark"] .ghost:hover,html[data-theme="dark"] .nav-button:hover,html[data-theme="dark"] .week-controls button:hover:not(:disabled){background:#30415e}html[data-theme="dark"] .field label,html[data-theme="dark"] .ddl-field label,html[data-theme="dark"] .time-setting span,html[data-theme="dark"] .website-form label,html[data-theme="dark"] .week-picker{color:#d5e0f0}html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] select{background:#142033!important;border-color:#42516a!important;color:#f0f5ff!important}html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#91a2ba}html[data-theme="dark"] .time-setting,html[data-theme="dark"] .ddl-form,html[data-theme="dark"] .website-form,html[data-theme="dark"] .timetable thead th,html[data-theme="dark"] .timetable tbody th,html[data-theme="dark"] .website-table th{background:#202e43;border-color:#3a4b63;color:#d9e4f4}html[data-theme="dark"] .timetable td,html[data-theme="dark"] .period-guide{background:#182538;border-color:#344358}html[data-theme="dark"] .timetable th,html[data-theme="dark"] .timetable td,html[data-theme="dark"] .panel-head,html[data-theme="dark"] .website-table th,html[data-theme="dark"] .website-table td{border-color:#344358}html[data-theme="dark"] .timetable thead th.is-today{background:#2a4278;color:#f0f5ff}html[data-theme="dark"] .day-date,html[data-theme="dark"] .slot-time,html[data-theme="dark"] .time-setting small,html[data-theme="dark"] .manual-time b{color:#a9bbd3}html[data-theme="dark"] .course[data-tone]{--tint:#283a55}html[data-theme="dark"] .course-name{color:#f2f6ff}html[data-theme="dark"] .course-meta,html[data-theme="dark"] .course-code{color:#bfd0e8}html[data-theme="dark"] .period-rail span{background:#1b2b40;border-color:#60718a;color:#c1cee0}html[data-theme="dark"] .period-rail span.active{background:var(--tone);color:#111827}html[data-theme="dark"] .ddl-item.overdue{background:#382935;border-color:#80505d}html[data-theme="dark"] .ddl-content{color:#dce7f7!important}html[data-theme="dark"] .ddl-remaining,html[data-theme="dark"] .ddl-count{background:#2a4278;color:#dce8ff}html[data-theme="dark"] .ddl-item.overdue .ddl-remaining{background:#653845;color:#ffe2e8}html[data-theme="dark"] .ddl-empty{border-color:#44546b;color:#adbad0}html[data-theme="dark"] .website-table td{color:#dce7f7}html[data-theme="dark"] .website-table a,html[data-theme="dark"] .ddl-address a,html[data-theme="dark"] .site-actions button{color:#9db8ff}html[data-theme="dark"] .placeholder-badge{background:#2a4278;color:#e8efff}
+    .period-grid .course-name{font-size:11px}.period-grid .course-meta{font-size:10px}html[data-theme="dark"] .timetable thead th.is-today .day-date{color:#d7e3ff}
     @media(max-width:1120px){.schedule-layout{grid-template-columns:1fr}.pending-card{position:static}}
     @media(max-width:900px){.settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    @media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.panel-head{align-items:flex-start;flex-direction:column}.week-controls{width:100%}.page-title{font-size:27px}.login-card{padding:30px 24px}.ddl-form{grid-template-columns:1fr}.ddl-field{grid-column:1/-1}}
+    @media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.panel-head{align-items:flex-start;flex-direction:column}.week-controls{width:100%}.page-title{font-size:27px}.login-card{padding:30px 24px}.ddl-form,.website-form{grid-template-columns:1fr}.ddl-field{grid-column:1/-1}}
     @media(max-width:420px){.time-dialog .settings-grid{grid-template-columns:1fr}.ddl-head{flex-direction:column}.ddl-item-head{flex-direction:column}}
-    @media print{.login-screen,.ghost,.week-controls,.main-nav,.site-foot,#placeholder-view,#ddl-view,.time-dialog{display:none!important}.app{padding:0}.summary{display:none}.schedule-layout{display:block}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.pending-card{margin-top:12px}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
+    @media print{.login-screen,.ghost,.week-controls,.main-nav,.site-foot,#placeholder-view,#ddl-view,#websites-view,.time-dialog{display:none!important}.app{padding:0}.summary{display:none}.schedule-layout{display:block}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.pending-card{margin-top:12px}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
   </style>
 </head>
 <body>
   <main id="login" class="login-screen">
+    <button class="ghost theme-button" data-theme-toggle type="button" style="position:absolute;right:24px;top:20px">夜间模式</button>
     <form id="login-form" class="login-card" autocomplete="on">
       <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 学习空间</span></div>
       <h1>欢迎回来</h1>
@@ -50,11 +56,12 @@
   <main id="app" class="app hidden" aria-hidden="true">
     <header class="topbar">
       <div><p class="eyebrow">STUDY SPACE</p><h1 class="page-title" id="page-title">我的学习空间</h1><p class="subtitle" id="term"></p></div>
-      <div class="top-actions"><div class="student-chip"><strong id="student"></strong></div><button id="logout" class="ghost" type="button">退出登录</button></div>
+      <div class="top-actions"><button class="ghost theme-button" data-theme-toggle type="button">夜间模式</button><div class="student-chip"><strong id="student"></strong></div><button id="logout" class="ghost" type="button">退出登录</button></div>
     </header>
     <nav class="main-nav" aria-label="主要版块">
       <button class="nav-button active" type="button" data-view="schedule" aria-current="page">课表</button>
       <button class="nav-button" type="button" data-view="ddl">DDL</button>
+      <button class="nav-button" type="button" data-view="websites">常用网站</button>
       <button class="nav-button" type="button" data-view="one">板块一</button>
       <button class="nav-button" type="button" data-view="two">板块二</button>
       <button class="nav-button" type="button" data-view="three">板块三</button>
@@ -78,15 +85,26 @@
       <p>这个版块已经预留好，内容可以以后再添加。</p>
     </section>
     <section id="ddl-view" class="content-card hidden" aria-labelledby="ddl-heading">
-      <div class="ddl-head"><div><h2 id="ddl-heading">DDL · 作业安排</h2><p>添加后会按截止时间从近到远排列，时间保存在当前浏览器。</p></div><span id="ddl-count" class="ddl-count">0 项作业</span></div>
-      <form id="ddl-form" class="ddl-form">
+      <div class="ddl-head"><div><h2 id="ddl-heading">DDL · 作业安排</h2><p>按截止时间从近到远排列，保存在当前浏览器。</p></div><div class="ddl-head-actions"><span id="ddl-count" class="ddl-count">0 项作业</span><button id="ddl-add-button" class="small-primary" type="button">＋ 添加作业</button></div></div>
+      <form id="ddl-form" class="ddl-form hidden">
         <div class="ddl-field"><label for="ddl-course">课程</label><input id="ddl-course" type="text" maxlength="80" required placeholder="例如：高等量子力学"></div>
         <div class="ddl-field"><label for="ddl-deadline">作业结束时间</label><input id="ddl-deadline" type="datetime-local" step="60" required></div>
         <div class="ddl-field ddl-wide"><label for="ddl-content">作业内容</label><textarea id="ddl-content" rows="3" maxlength="1000" required placeholder="写下作业要求"></textarea></div>
         <div class="ddl-field ddl-wide"><label for="ddl-address">提交地址</label><input id="ddl-address" type="text" maxlength="300" placeholder="网址或线下提交地点（可留空）"></div>
-        <div class="ddl-actions"><button id="ddl-submit" class="primary" type="submit">添加作业</button><button id="ddl-cancel" class="ghost hidden" type="button">取消编辑</button><span id="ddl-status" class="settings-status" role="status" aria-live="polite"></span></div>
+        <div class="ddl-actions"><button id="ddl-submit" class="primary" type="submit">添加作业</button><button id="ddl-cancel" class="ghost" type="button">取消</button><span id="ddl-status" class="settings-status" role="status" aria-live="polite"></span></div>
       </form>
       <div id="ddl-list" class="ddl-list"></div>
+    </section>
+    <section id="websites-view" class="content-card hidden" aria-labelledby="websites-heading">
+      <h2 id="websites-heading">常用网站</h2><p>保存常用的网址，点击后在新标签页打开。</p>
+      <div class="website-wrap"><table class="website-table"><thead><tr><th>名称</th><th>网址</th><th>备注</th><th aria-label="操作"></th></tr></thead><tbody id="website-list"></tbody></table></div>
+      <button id="website-add-button" class="small-primary website-add" type="button">＋ 新增网址</button>
+      <form id="website-form" class="website-form hidden">
+        <div><label for="website-name">名称</label><input id="website-name" type="text" maxlength="80" required placeholder="例如：学校教务处"></div>
+        <div><label for="website-url">网址</label><input id="website-url" type="text" inputmode="url" maxlength="500" required placeholder="https://example.com"></div>
+        <div><label for="website-note">备注</label><input id="website-note" type="text" maxlength="200" placeholder="可留空"></div>
+        <div class="website-form-actions"><button id="website-submit" class="small-primary" type="submit">保存网址</button><button id="website-cancel" class="ghost" type="button">取消</button><span id="website-status" class="website-status" role="status" aria-live="polite"></span></div>
+      </form>
     </section>
   </main>
   <dialog id="time-dialog" class="time-dialog" aria-labelledby="time-heading">
@@ -104,11 +122,24 @@
     let selectedWeek = 0;
     const timeStorageKey = "ranqi.lessonStartTimes.v1";
     const ddlStorageKey = "ranqi.assignments.v1";
+    const websitesStorageKey = "ranqi.websites.v1";
+    const themeStorageKey = "ranqi.theme.v1";
     const lessonMinutes = 45;
     const shortBreakMinutes = 5;
     let startTimes = {};
     let assignments = [];
+    let websites = [];
     let editingAssignmentId = null;
+    let editingWebsiteId = null;
+    function setTheme(theme){
+      document.documentElement.dataset.theme=theme;
+      document.querySelectorAll("[data-theme-toggle]").forEach(button=>{
+        button.textContent=theme==="dark"?"白天模式":"夜间模式";
+        button.setAttribute("aria-label",theme==="dark"?"切换到白天模式":"切换到夜间模式");
+      });
+      try{localStorage.setItem(themeStorageKey,theme);}catch{}
+    }
+    try{setTheme(localStorage.getItem(themeStorageKey)==="dark"?"dark":"light");}catch{setTheme("light");}
     function todayInShanghai(){
       const parts = new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
       const values=Object.fromEntries(parts.map(part=>[part.type,part.value]));
@@ -137,11 +168,26 @@
       const grid=$("settings-grid");grid.replaceChildren();
       for(const slot of schedule.slots){
         const first=Number(slot.id.split("-")[0]),last=Number(slot.id.split("-")[1]);
-        const label=make("label","time-setting");label.append(make("span","",slot.label));
-        const input=document.createElement("input");input.type="time";input.step=60;input.value=startTimes[first]||"";input.setAttribute("aria-label",`${slot.label}起始时间`);
+        const label=make("div","time-setting");label.append(make("span","",slot.label));
+        const entry=make("div","manual-time");
+        const hour=document.createElement("input"),minute=document.createElement("input");
+        for(const input of [hour,minute]){input.type="text";input.inputMode="numeric";input.maxLength=2;input.autocomplete="off";}
+        hour.placeholder="时";minute.placeholder="分";
+        hour.setAttribute("aria-label",`${slot.label}起始时间的小时`);minute.setAttribute("aria-label",`${slot.label}起始时间的分钟`);
+        if(startTimes[first]){[hour.value,minute.value]=startTimes[first].split(":");}
+        entry.append(hour,make("b","",":"),minute);
         const preview=make("small","time-preview",slotTimeRange(first,first,last)||"尚未设置起始时间");
-        input.addEventListener("change",()=>{if(input.value)startTimes[first]=input.value;else delete startTimes[first];saveStartTimes();preview.textContent=slotTimeRange(first,first,last)||"尚未设置起始时间";drawCourses(selectedWeek);});
-        label.append(input,preview);grid.append(label);
+        const save=()=>{
+          const h=hour.value.trim(),m=minute.value.trim();
+          if(!h&&!m)delete startTimes[first];
+          else if(/^\d{1,2}$/.test(h)&&/^\d{1,2}$/.test(m)&&Number(h)<24&&Number(m)<60){
+            startTimes[first]=`${h.padStart(2,"0")}:${m.padStart(2,"0")}`;
+            hour.value=h.padStart(2,"0");minute.value=m.padStart(2,"0");
+          }else{putText("settings-status","请填写有效的小时（0–23）和分钟（0–59）。");return;}
+          saveStartTimes();preview.textContent=slotTimeRange(first,first,last)||"尚未设置起始时间";drawCourses(selectedWeek);
+        };
+        hour.addEventListener("change",save);minute.addEventListener("change",save);
+        label.append(entry,preview);grid.append(label);
       }
     }
     function slotTimeRange(groupFirst,first,last){
@@ -154,7 +200,9 @@
     function showView(view){
       $("schedule-view").classList.toggle("hidden",view!=="schedule");
       $("ddl-view").classList.toggle("hidden",view!=="ddl");
+      $("websites-view").classList.toggle("hidden",view!=="websites");
       if(view==="ddl")renderAssignments();
+      if(view==="websites")renderWebsites();
       const placeholder=["one","two","three"].includes(view);
       $("placeholder-view").classList.toggle("hidden",!placeholder);
       if(placeholder){const number={one:1,two:2,three:3}[view];putText("placeholder-title",`板块${["","一","二","三"][number]}`);putText("placeholder-badge",String(number).padStart(2,"0"));}
@@ -187,13 +235,13 @@
       return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
     }
     function resetAssignmentForm(){
-      $("ddl-form").reset();editingAssignmentId=null;putText("ddl-submit","添加作业");$("ddl-cancel").classList.add("hidden");
+      $("ddl-form").reset();$("ddl-form").classList.add("hidden");editingAssignmentId=null;putText("ddl-submit","添加作业");putText("ddl-status","");
     }
     function renderAssignments(){
       const list=$("ddl-list");list.replaceChildren();
       const sorted=[...assignments].sort((a,b)=>a.deadline-b.deadline||a.course.localeCompare(b.course,"zh-CN"));
       putText("ddl-count",`${sorted.length} 项作业`);
-      if(!sorted.length){list.append(make("div","ddl-empty","还没有作业。填写上方表单，添加第一项 DDL。"));return;}
+      if(!sorted.length){list.append(make("div","ddl-empty","还没有作业。点击“添加作业”创建第一项 DDL。"));return;}
       for(const item of sorted){
         const card=make("article","ddl-item");if(item.deadline<=Date.now())card.classList.add("overdue");
         const head=make("div","ddl-item-head"),heading=make("div","");
@@ -211,13 +259,53 @@
         const actions=make("div","ddl-item-actions");
         const edit=make("button","","编辑");edit.type="button";edit.addEventListener("click",()=>{
           editingAssignmentId=item.id;$("ddl-course").value=item.course;$("ddl-deadline").value=dateInputValue(item.deadline);$("ddl-content").value=item.content;$("ddl-address").value=item.address;
-          putText("ddl-submit","保存修改");$("ddl-cancel").classList.remove("hidden");$("ddl-course").focus();$("ddl-form").scrollIntoView({behavior:"smooth",block:"start"});
+          putText("ddl-submit","保存修改");$("ddl-form").classList.remove("hidden");$("ddl-course").focus();$("ddl-form").scrollIntoView({behavior:"smooth",block:"start"});
         });
         const remove=make("button","","删除");remove.type="button";remove.addEventListener("click",()=>{
           if(!confirm(`确定删除「${item.course}」这项作业吗？`))return;
           assignments=assignments.filter(value=>value.id!==item.id);if(editingAssignmentId===item.id)resetAssignmentForm();saveAssignments();renderAssignments();
         });
         actions.append(edit,remove);card.append(actions);list.append(card);
+      }
+    }
+    function readWebsites(){
+      try{
+        const saved=JSON.parse(localStorage.getItem(websitesStorageKey)||"[]");
+        if(!Array.isArray(saved))return [];
+        return saved.filter(item=>item&&typeof item.id==="string"&&typeof item.name==="string"&&typeof item.url==="string"&&typeof item.note==="string"&&/^https?:\/\//.test(item.url));
+      }catch{return [];}
+    }
+    function saveWebsites(){
+      try{localStorage.setItem(websitesStorageKey,JSON.stringify(websites));putText("website-status","已保存到当前浏览器。");}
+      catch{putText("website-status","当前浏览器无法保存，关闭页面后可能丢失。");}
+    }
+    function normalizeWebsiteUrl(value){
+      const candidate=/^[a-z][a-z\d+.-]*:/i.test(value)?value:`https://${value}`;
+      try{
+        const url=new URL(candidate);
+        return ["http:","https:"].includes(url.protocol)&&url.hostname?url.href:null;
+      }catch{return null;}
+    }
+    function resetWebsiteForm(){
+      $("website-form").reset();$("website-form").classList.add("hidden");
+      editingWebsiteId=null;putText("website-submit","保存网址");putText("website-status","");
+    }
+    function renderWebsites(){
+      const list=$("website-list");list.replaceChildren();
+      if(!websites.length){const row=document.createElement("tr"),cell=make("td","website-empty","还没有常用网站，点击下方“新增网址”添加。");cell.colSpan=4;row.append(cell);list.append(row);return;}
+      for(const item of websites){
+        const row=document.createElement("tr"),name=make("td","",item.name),urlCell=document.createElement("td"),note=make("td","",item.note),actions=make("td","site-actions");
+        const link=make("a","",item.url);link.href=item.url;link.target="_blank";link.rel="noopener noreferrer";urlCell.append(link);
+        const edit=make("button","","编辑");edit.type="button";edit.addEventListener("click",()=>{
+          editingWebsiteId=item.id;$("website-name").value=item.name;$("website-url").value=item.url;$("website-note").value=item.note;
+          putText("website-submit","保存修改");$("website-form").classList.remove("hidden");$("website-name").focus();
+        });
+        const remove=make("button","","删除");remove.type="button";remove.addEventListener("click",()=>{
+          if(!confirm(`确定删除「${item.name}」吗？`))return;
+          websites=websites.filter(value=>value.id!==item.id);
+          if(editingWebsiteId===item.id)resetWebsiteForm();saveWebsites();renderWebsites();
+        });
+        actions.append(edit,remove);row.append(name,urlCell,note,actions);list.append(row);
       }
     }
     const icon = kind => {
@@ -265,7 +353,7 @@
           if(week!==0){
             container.style.setProperty("--rows",String(groupLast-groupFirst+1));
             for(let period=groupFirst;period<=groupLast;period++){
-              const guide=make("div","period-guide",`第 ${period} 节`);guide.style.gridRow=String(period-groupFirst+1);container.append(guide);
+              const guide=make("div","period-guide");guide.style.gridRow=String(period-groupFirst+1);container.append(guide);
             }
           }
           for(const course of items){
@@ -274,16 +362,17 @@
             const first=Number(match?.[1]||groupFirst),last=Number(match?.[2]||match?.[1]||groupLast);
             const card=make("article","course");card.dataset.tone=course.tone;
             card.dataset.duration=String(last-first+1);
+            card.title=`${course.name} · ${course.weeks} · ${course.periods}${slotTimeRange(groupFirst,first,last)?` · ${slotTimeRange(groupFirst,first,last)}`:""} · ${course.room}`;
             if(week!==0)card.style.gridRow=`${first-groupFirst+1} / span ${last-first+1}`;
             card.append(make("p","course-name",course.name));
-            addMeta(card,"calendar",`${course.weeks} · ${course.periods}`);
+            if(week===0)addMeta(card,"calendar",course.weeks);
             const courseTime=slotTimeRange(groupFirst,first,last);
-            if(courseTime)addMeta(card,"clock",courseTime);
+            if(week===0&&courseTime)addMeta(card,"clock",courseTime);
             addMeta(card,"pin",course.room);
             card.append(make("div","course-code",`课程代码 ${course.code}`));
             if(week===0){
               const rail=make("div","period-rail");rail.setAttribute("aria-label",`${course.periods}，共 ${last-first+1} 节`);
-              for(let period=groupFirst;period<=groupLast;period++)rail.append(make("span",period>=first&&period<=last?"active":"",String(period)));
+              for(let period=groupFirst;period<=groupLast;period++)rail.append(make("span",period>=first&&period<=last?"active":""));
               card.append(rail);
             }
             container.append(card);
@@ -310,6 +399,7 @@
       schedule=data;
       startTimes=readStartTimes();buildSettings();
       assignments=readAssignments();renderAssignments();
+      websites=readWebsites();renderWebsites();
       putText("page-title","我的学习空间");putText("term",data.term);putText("student",data.student);
       const picker=$("week");for(let week=1;week<=16;week++){const option=document.createElement("option");option.value=String(week);option.textContent=`第 ${week} 周`;picker.append(option);}
       for(const note of data.unscheduled)$("unscheduled").append(make("li","",note));
@@ -343,6 +433,8 @@
     $("time-settings-button").addEventListener("click",()=>$("time-dialog").showModal());
     $("time-close").addEventListener("click",()=>$("time-dialog").close());
     $("time-dialog").addEventListener("click",event=>{if(event.target===$("time-dialog"))$("time-dialog").close();});
+    document.querySelectorAll("[data-theme-toggle]").forEach(button=>button.addEventListener("click",()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark")));
+    $("ddl-add-button").addEventListener("click",()=>{resetAssignmentForm();$("ddl-form").classList.remove("hidden");$("ddl-course").focus();});
     $("ddl-form").addEventListener("submit",event=>{
       event.preventDefault();
       const course=$("ddl-course").value.trim(),content=$("ddl-content").value.trim(),address=$("ddl-address").value.trim();
@@ -354,10 +446,21 @@
       saveAssignments();resetAssignmentForm();renderAssignments();
     });
     $("ddl-cancel").addEventListener("click",resetAssignmentForm);
+    $("website-add-button").addEventListener("click",()=>{resetWebsiteForm();$("website-form").classList.remove("hidden");$("website-name").focus();});
+    $("website-form").addEventListener("submit",event=>{
+      event.preventDefault();
+      const name=$("website-name").value.trim(),url=normalizeWebsiteUrl($("website-url").value.trim()),note=$("website-note").value.trim();
+      if(!name||!url){putText("website-status","请填写名称和有效的 http/https 网址。");return;}
+      const item={id:editingWebsiteId||crypto.randomUUID(),name,url,note};
+      if(editingWebsiteId)websites=websites.map(value=>value.id===editingWebsiteId?item:value);
+      else websites.push(item);
+      saveWebsites();resetWebsiteForm();renderWebsites();
+    });
+    $("website-cancel").addEventListener("click",resetWebsiteForm);
     setInterval(()=>{if(schedule&&!$("ddl-view").classList.contains("hidden"))renderAssignments();},60000);
     document.addEventListener("visibilitychange",()=>{if(!document.hidden&&schedule&&!$("ddl-view").classList.contains("hidden"))renderAssignments();});
     document.querySelectorAll(".nav-button").forEach(button=>button.addEventListener("click",()=>showView(button.dataset.view)));
-    $("logout").addEventListener("click",()=>{schedule=null;selectedWeek=0;if($("time-dialog").open)$("time-dialog").close();resetAssignmentForm();$("table-body").replaceChildren();$("table-head").replaceChildren();$("unscheduled").replaceChildren();$("week").replaceChildren(new Option("总课表","0"));$("app").classList.add("hidden");$("app").setAttribute("aria-hidden","true");$("login").classList.remove("hidden");$("login-form").reset();updateLoginMode();$("username").focus();});
+    $("logout").addEventListener("click",()=>{schedule=null;selectedWeek=0;if($("time-dialog").open)$("time-dialog").close();resetAssignmentForm();resetWebsiteForm();$("table-body").replaceChildren();$("table-head").replaceChildren();$("unscheduled").replaceChildren();$("week").replaceChildren(new Option("总课表","0"));$("app").classList.add("hidden");$("app").setAttribute("aria-hidden","true");$("login").classList.remove("hidden");$("login-form").reset();updateLoginMode();$("username").focus();});
   </script>
 </body>
 </html>
