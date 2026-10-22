@@ -1,0 +1,28 @@
+<section id="schedule-view" aria-label="课程表">
+  <div class="schedule-layout">
+    <section class="schedule-panel" aria-labelledby="schedule-heading">
+      <div class="panel-head">
+        <div><h2 id="schedule-heading">周课表</h2><p id="week-dates">手机上可左右滑动查看完整星期安排</p></div>
+        <div class="week-controls">
+          <button id="time-settings-button" type="button">上课时间设置</button>
+          <button id="prev-week" type="button" aria-label="上一周">← 上一周</button>
+          <button id="next-week" type="button" aria-label="下一周">下一周 →</button>
+          <button id="view-toggle" class="view-toggle" type="button">查看总课表</button>
+          <label class="week-picker" for="week">跳转 <select id="week"><option value="0">总课表</option></select></label>
+        </div>
+      </div>
+      <div class="table-wrap"><table class="timetable"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+    </section>
+    <aside class="note-card pending-card" aria-labelledby="pending-heading"><h2 id="pending-heading">待定课程</h2><ul id="unscheduled"></ul></aside>
+  </div>
+  <p class="site-foot">课程信息根据提供的课表 PDF 整理 · 请以学校最新安排为准</p>
+</section>
+
+<dialog id="time-dialog" class="time-dialog" aria-labelledby="time-heading">
+  <div class="dialog-head">
+    <div><h2 id="time-heading">上课时间设置</h2><p>分别输入小时和分钟，结束时间会自动计算。</p></div>
+    <button id="time-close" class="ghost" type="button" aria-label="关闭设置">关闭</button>
+  </div>
+  <div id="settings-grid" class="settings-grid"></div>
+  <p id="settings-status" class="settings-status" role="status" aria-live="polite">修改后自动保存到当前浏览器。</p>
+</dialog>

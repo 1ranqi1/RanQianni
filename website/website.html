@@ -1,0 +1,17 @@
+<section id="websites-view" class="content-card" aria-labelledby="websites-heading">
+  <h2 id="websites-heading">常用网站</h2>
+  <p>跨设备内容请编辑 website/data.js 并上传；点按钮添加的网址只保存在当前浏览器。</p>
+  <div class="website-wrap">
+    <table class="website-table">
+      <thead><tr><th>名称</th><th>网址</th><th>备注</th><th aria-label="操作"></th></tr></thead>
+      <tbody id="website-list"></tbody>
+    </table>
+  </div>
+  <button id="website-add-button" class="small-primary website-add" type="button">＋ 新增网址</button>
+  <form id="website-form" class="website-form hidden">
+    <div><label for="website-name">名称</label><input id="website-name" type="text" maxlength="80" required placeholder="例如：学校教务处"></div>
+    <div><label for="website-url">网址</label><input id="website-url" type="text" inputmode="url" maxlength="500" required placeholder="https://example.com"></div>
+    <div><label for="website-note">备注</label><input id="website-note" type="text" maxlength="200" placeholder="可留空"></div>
+    <div class="website-form-actions"><button id="website-submit" class="small-primary" type="submit">保存网址</button><button id="website-cancel" class="ghost" type="button">取消</button><span id="website-status" class="website-status" role="status" aria-live="polite"></span></div>
+  </form>
+</section>

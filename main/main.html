@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>我的学习空间</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="../class/class.css">
+  <link rel="stylesheet" href="../DDL/DDL.css">
+  <link rel="stylesheet" href="../website/website.css">
+  <link rel="stylesheet" href="./theme.css">
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <main id="login" class="login-screen">
+    <button class="ghost login-theme-button" data-theme-toggle type="button">夜间模式</button>
+    <form id="login-form" class="login-card" autocomplete="on">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 学习空间</span></div>
+      <h1>欢迎回来</h1>
+      <p class="login-lead">登录后查看课表与个人学习空间。</p>
+      <div class="field"><label for="username">用户名</label><input id="username" name="username" type="text" autocomplete="username" required autofocus></div>
+      <div id="password-field" class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button id="login-button" class="primary" type="submit">进入学习空间</button>
+      <p id="login-error" class="error" role="alert" aria-live="polite"></p>
+      <div class="login-foot">2026–2027 学年 · 第 1 学期</div>
+    </form>
+  </main>
+
+  <main id="app" class="app hidden" aria-hidden="true">
+    <header class="topbar">
+      <div><p class="eyebrow">STUDY SPACE</p><h1 class="page-title">我的学习空间</h1><p class="subtitle" id="term"></p></div>
+      <div class="top-actions">
+        <button class="ghost" data-theme-toggle type="button">夜间模式</button>
+        <div class="student-chip"><strong id="student"></strong></div>
+        <button id="logout" class="ghost" type="button">退出登录</button>
+      </div>
+    </header>
+    <nav class="main-nav" aria-label="主要版块">
+      <button class="nav-button active" type="button" data-view="class" aria-current="page">课表</button>
+      <button class="nav-button" type="button" data-view="ddl">DDL</button>
+      <button class="nav-button" type="button" data-view="website">常用网站</button>
+      <button class="nav-button" type="button" data-view="one">板块一</button>
+      <button class="nav-button" type="button" data-view="two">板块二</button>
+      <button class="nav-button" type="button" data-view="three">板块三</button>
+    </nav>
+    <div id="class-root"></div>
+    <div id="ddl-root" class="hidden"></div>
+    <div id="website-root" class="hidden"></div>
+    <section id="placeholder-view" class="content-card placeholder-card hidden" aria-labelledby="placeholder-title">
+      <div id="placeholder-badge" class="placeholder-badge">01</div>
+      <h2 id="placeholder-title">板块一</h2>
+      <p>这个版块已经预留好，内容可以以后再添加。</p>
+    </section>
+  </main>
+</body>
+</html>
