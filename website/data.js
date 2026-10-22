@@ -3,17 +3,27 @@
 // 网址请写完整的 https:// 地址；每一项之间用逗号隔开。
 
 export const manualWebsites = [
-  // 示例：删除每行开头的 // 后即可使用，再按需要修改内容。
-  // {
-  //   name: "学校教务处",
-  //   url: "https://example.com",
-  //   note: "选课、成绩查询",
-  // },
+  {
+    name: "北理工教研一体化",
+    url: "https://jxzxehall.bit.edu.cn/new/index.html?browser=no",
+    note: "教务平台",
+  },
 
-  // 在这里继续添加下一项：
-  // {
-  //   name: "网站名称",
-  //   url: "https://example.org",
-  //   note: "备注内容；没有可写空字符串",
-  // },
+  {
+    name: "Yandex",
+    url: "https://yandex.com/",
+    note: "万能搜索网站",
+  },
+
+  {
+    name: "Google Scholar",
+    url: "https://scholar.google.com/",
+    note: "谷歌学术",
+  },
+
+  {
+    name: "z-library",
+    url: "https://zh.zlib.bz/",
+    note: "图书馆",
+  },
 ];

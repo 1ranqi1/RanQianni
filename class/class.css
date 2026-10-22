@@ -17,3 +17,11 @@
 .period-grid .course-name{font-size:11px}.period-grid .course-meta{font-size:10px}html[data-theme="dark"] .timetable thead th.is-today .day-date{color:#d7e3ff}
 @media(max-width:1120px){.schedule-layout{grid-template-columns:1fr}.pending-card{position:static}}
 @media(max-width:900px){.settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* 课程名称与地点字体放大（覆盖前面更小的规则） */
+.period-grid .course-name{font-size:12px;line-height:1.2}
+.period-grid .course-meta{font-size:11px;line-height:1.15}
+.period-grid .course-meta svg{width:11px;height:11px}
+.period-list .course-name{font-size:14px}
+.period-list .course-meta{font-size:12px}
+.period-list .course-meta svg{width:14px;height:14px}

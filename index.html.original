@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=./main/main.html">
+  <title>我的学习空间</title>
+  <script>location.replace(new URL("./main/main.html", location.href));</script>
+</head>
+<body><p><a href="./main/main.html">进入我的学习空间</a></p></body>
+</html>

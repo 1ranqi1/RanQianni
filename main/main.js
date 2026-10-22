@@ -6,11 +6,18 @@ import { $, putText } from "./utils.js";
 
 const themeStorageKey = "ranqi.theme.v1";
 
+const SUN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6L6 18M18 6l1.6-1.6"/></svg>';
+const MOON_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.7 8.7 0 1 0 10.6 10.6Z"/></svg>';
+
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   for (const button of document.querySelectorAll("[data-theme-toggle]")) {
-    button.textContent = theme === "dark" ? "白天模式" : "夜间模式";
-    button.setAttribute("aria-label", theme === "dark" ? "切换到白天模式" : "切换到夜间模式");
+    // 当前是夜间 → 显示太阳（点击切回白天）；当前是白天 → 显示月亮
+    const isDark = theme === "dark";
+    button.innerHTML = isDark ? SUN_ICON : MOON_ICON;
+    button.setAttribute("aria-label", isDark ? "切换到白天模式" : "切换到夜间模式");
+    button.setAttribute("title", isDark ? "切换到白天模式" : "切换到夜间模式");
+    button.classList.add("theme-icon-button");
   }
   try { localStorage.setItem(themeStorageKey, theme); } catch {}
 }

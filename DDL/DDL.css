@@ -1,3 +1,50 @@
 /* DDL 板块 */
 .file-note { color: #71809b; font-size: 12px; }
 .ddl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.ddl-head-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}.small-primary{height:36px;border:0;border-radius:9px;background:#365ac8;color:#fff;font-size:13px;font-weight:750;padding:0 14px}.ddl-count{font-size:12px;color:#4261ae;background:#edf2ff;border-radius:999px;padding:7px 12px;white-space:nowrap}.ddl-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;padding:20px;border:1px solid #e5eaf3;border-radius:14px;background:#f9fbff}.ddl-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:700;color:#34415b}.ddl-field input,.ddl-field textarea{width:100%;border:1px solid #d5ddea;border-radius:9px;background:#fff;padding:10px 12px;color:#253553;outline:none}.ddl-field input{height:42px}.ddl-field textarea{resize:vertical;min-height:85px}.ddl-field input:focus,.ddl-field textarea:focus{border-color:#5775d6;box-shadow:0 0 0 3px #e8edff}.ddl-wide,.ddl-actions{grid-column:1/-1}.ddl-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ddl-actions .primary{width:auto;padding:0 22px}.ddl-actions .settings-status{margin:0!important}.ddl-list{display:grid;gap:12px;margin-top:20px}.ddl-item{border:1px solid #e5eaf3;border-radius:14px;padding:17px 19px;background:#fff}.ddl-item.overdue{border-color:#efd1d5;background:#fffafa}.ddl-item-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.ddl-item h3{font-size:17px;margin:0 0 4px}.ddl-item-meta{font-size:12px;color:#71809b}.ddl-remaining{font-size:13px;font-weight:800;color:#365ac8;background:#edf2ff;border-radius:9px;padding:7px 10px;white-space:nowrap}.ddl-item.overdue .ddl-remaining{color:#ad4d59;background:#ffedf0}.ddl-content{font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0!important;color:#33435f!important}.ddl-address{font-size:12px;color:#61728f;overflow-wrap:anywhere}.ddl-address a{color:#365ac8}.ddl-item-actions{display:flex;gap:8px;margin-top:12px}.ddl-item-actions button{border:1px solid #dce3ee;background:#fff;color:#42516e;border-radius:8px;padding:6px 10px;font-size:12px}.ddl-empty{padding:45px 18px;text-align:center;color:#8792a7;border:1px dashed #d4ddea;border-radius:14px}
+
+/* ===== 截止时间：黄色框，位于剩余时间上方 ===== */
+.ddl-item-head{align-items:flex-start}
+.ddl-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex:none}
+.ddl-deadline-box{font-size:12.5px;font-weight:800;color:#8a5a00;background:#fff5d1;border:1.5px solid #f2cc55;border-radius:9px;padding:6px 11px;white-space:nowrap;letter-spacing:.01em}
+.ddl-item.overdue .ddl-deadline-box{color:#a33b48;background:#ffeef0;border-color:#eeb2ba}
+.ddl-item.is-done .ddl-deadline-box{color:#7b8296;background:#f1f3f7;border-color:#d9dee8}
+
+/* ===== 已完成状态 ===== */
+.ddl-item.is-done{background:#fafbfd;border-color:#e3e7ef}
+.ddl-item.is-done h3{text-decoration:line-through;text-decoration-thickness:1.5px;color:#9aa3b5}
+.ddl-item.is-done .ddl-content{text-decoration:line-through;text-decoration-thickness:1.5px;color:#9aa3b5!important}
+.ddl-item.is-done .ddl-item-meta,
+.ddl-item.is-done .ddl-address{color:#adb5c5}
+.ddl-item.is-done .ddl-remaining{color:#8b93a5;background:#eff1f5}
+
+/* ===== 右下角完成圆圈 ===== */
+.ddl-item{position:relative}
+.ddl-item-actions{display:flex;gap:8px;align-items:center;margin-top:12px;min-height:26px}
+.ddl-done-toggle{position:absolute;right:16px;bottom:14px;width:26px;height:26px;flex:none;border-radius:50%;border:1.8px solid #c3ccdc;background:#fff;padding:0;cursor:pointer;transition:.16s;-webkit-appearance:none;appearance:none;display:flex;align-items:center;justify-content:center}
+.ddl-done-toggle:hover{border-color:#57c08b;background:#f2fbf6;transform:scale(1.08)}
+.ddl-done-toggle[aria-pressed="true"]{background:#57c08b;border-color:#57c08b}
+.ddl-done-toggle[aria-pressed="true"]::after{content:"";width:6px;height:11px;margin-top:-3px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.ddl-done-toggle[aria-pressed="true"]:hover{background:#469e72;border-color:#469e72}
+html[data-theme="dark"] .ddl-deadline-box{color:#ffd97a;background:#4a3b16;border-color:#a8862c}
+html[data-theme="dark"] .ddl-item.is-done{background:#181f2c;border-color:#2c3547}
+html[data-theme="dark"] .ddl-done-toggle{background:#1a2638;border-color:#4a5a72}
+html[data-theme="dark"] .ddl-done-toggle:hover{background:#22402f;border-color:#57c08b}
+
+/* 卡片内间距收紧，避免留白过大 */
+.ddl-item{padding:15px 18px}
+.ddl-item h3{font-size:16.5px;margin:0}
+.ddl-content{margin:9px 0 0!important;font-size:13.5px}
+.ddl-address{margin-top:8px}
+.ddl-item-actions{margin-top:6px;min-height:24px}
+.ddl-done-toggle{right:15px;bottom:13px}
+
+/* 每条作业的编辑 / 删除按钮（文件来源也可用） */
+.ddl-item{cursor:pointer;transition:box-shadow .16s,border-color .16s}
+.ddl-item:hover{box-shadow:0 4px 16px rgba(26,43,83,.07);border-color:#d8e0ef}
+.ddl-act-btn{height:26px;min-width:44px;padding:0 10px;border:1px solid #dce3ee;border-radius:7px;background:#fff;color:#4a5a78;font-size:12px;font-weight:700;cursor:pointer;transition:.15s;-webkit-appearance:none;appearance:none}
+.ddl-act-btn:hover{background:#eef2fb;border-color:#c2cfe6;color:#365ac8}
+.ddl-act-danger:hover{background:#fff1f3;border-color:#f0c2c8;color:#c4455a}
+html[data-theme="dark"] .ddl-item:hover{border-color:#3d4c63}
+html[data-theme="dark"] .ddl-act-btn{background:#233149;border-color:#3a4b63;color:#cfdcef}
+html[data-theme="dark"] .ddl-act-btn:hover{background:#2d3d57;border-color:#4a5d79;color:#9db8ff}
+html[data-theme="dark"] .ddl-act-danger:hover{background:#3d2731;border-color:#6b3a45;color:#ff9fae}

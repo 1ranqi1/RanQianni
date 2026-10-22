@@ -20,4 +20,24 @@ export const manualAssignments = [
   //   content: "作业内容",
   //   address: "提交网址或地点；没有可写空字符串",
   // },
+  {
+    course: "学术诚信",
+    deadline: "2026-11-03 18:00",
+    content: "5000字学术论文",
+    address: "",
+  },
+
+  {
+    course: "体育艺术素养",
+    deadline: "2026-10-30 00:00",
+    content: "500字小论文",
+    address: "",
+  },
+
+  {
+    course: "国家安全概论",
+    deadline: "2026-10-31 00:00",
+    content: "3000字实践报告",
+    address: "",
+  },
 ];

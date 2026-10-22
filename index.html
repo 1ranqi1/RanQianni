@@ -1,11 +1,1443 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./main/main.html">
-  <title>我的学习空间</title>
-  <script>location.replace(new URL("./main/main.html", location.href));</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>我的学习空间</title>
+<style>
+/* ==========================================================================
+   本文件由 build_single.py 自动生成，请勿直接编辑。
+   要修改内容，请编辑 main/ class/ DDL/ website/ 下的源文件，然后重新运行：
+       python build_single.py
+   ========================================================================== */
+
+/* ---------- main/main.css ---------- */
+/* 主控：登录、导航与通用组件 */
+:root{color-scheme:light;font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:#17233d;background:#f5f7fb;font-synthesis:none}
+*{box-sizing:border-box} body{margin:0;min-height:100vh} button,input,select{font:inherit} button{cursor:pointer}
+.hidden{display:none!important} .login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 15%,#d8e2ff 0,transparent 34%),radial-gradient(circle at 85% 80%,#d8f3ef 0,transparent 28%),#f5f7fb}
+.login-card{width:min(100%,440px);background:#fff;border:1px solid #e5eaf3;border-radius:24px;padding:38px;box-shadow:0 24px 70px rgba(30,47,87,.12)}
+.brand{display:flex;align-items:center;gap:11px;color:#365ac8;font-weight:800;letter-spacing:.06em;font-size:14px}.brand-mark{width:39px;height:39px;border-radius:12px;background:#365ac8;color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 7px 18px rgba(54,90,200,.25)}
+h1{font-size:30px;letter-spacing:-.03em;margin:28px 0 8px}.login-lead{color:#66748e;font-size:14px;line-height:1.7;margin:0 0 30px}
+.field{margin:0 0 18px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px;color:#34415b}.field input{width:100%;height:48px;padding:0 14px;border:1px solid #d5ddea;border-radius:11px;background:#fbfcfe;outline:none;transition:.2s}.field input:focus{border-color:#5775d6;box-shadow:0 0 0 4px #e8edff;background:white}
+.primary{width:100%;height:48px;border:0;border-radius:11px;background:#365ac8;color:white;font-weight:750;box-shadow:0 8px 20px rgba(54,90,200,.2)}.primary:hover{background:#294cb5}.primary:disabled{opacity:.65;cursor:wait}
+.error{min-height:22px;color:#c43d4c;font-size:13px;margin:10px 0 0}.login-foot{border-top:1px solid #edf0f5;margin-top:20px;padding-top:18px;font-size:12px;color:#8792a7;text-align:center}
+.app{max-width:1480px;margin:auto;padding:28px 30px 72px}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:28px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#5872b9;font-weight:800;margin:0 0 8px}.page-title{font-size:31px;line-height:1.2;margin:0 0 9px}.subtitle{margin:0;color:#6c7890;font-size:14px}.top-actions{display:flex;align-items:center;gap:12px}.student-chip{background:#fff;border:1px solid #e3e8f1;border-radius:12px;padding:10px 14px;color:#394864;font-size:13px;white-space:nowrap}.student-chip strong{display:block;color:#17233d;font-size:14px}.ghost{height:42px;border:1px solid #dce3ee;background:#fff;border-radius:11px;color:#42516e;padding:0 16px;font-weight:700}.ghost:hover{background:#f0f3fb}
+.main-nav{display:flex;gap:8px;overflow-x:auto;padding:0 0 12px;margin:0 0 18px;scrollbar-width:thin}.nav-button{flex:none;border:1px solid #e1e7f1;background:#fff;border-radius:11px;padding:11px 18px;color:#53627c;font-size:14px;font-weight:750}.nav-button:hover{background:#f0f3fb}.nav-button.active{color:#fff;background:#365ac8;border-color:#365ac8;box-shadow:0 7px 16px rgba(54,90,200,.18)}
+.content-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:28px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.content-card h2{font-size:22px;margin:0 0 9px}.content-card p{color:#6b7892;font-size:14px;line-height:1.7;margin:0}.placeholder-card{min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.placeholder-badge{width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:#edf2ff;color:#365ac8;font-size:21px;font-weight:800;margin-bottom:20px}.settings-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}.time-setting{display:block;background:#f8faff;border:1px solid #e5eaf3;border-radius:12px;padding:13px}.time-setting span{display:block;font-size:13px;font-weight:750;color:#394864;margin-bottom:8px}.time-setting input{width:100%;height:38px;border:1px solid #d5ddea;border-radius:8px;background:#fff;padding:0 9px;color:#253553}.time-setting input:focus{outline:2px solid #b9c8f6;outline-offset:1px}.settings-status{margin-top:16px!important;font-size:12px!important;color:#5d708f!important}
+
+/* 主题切换：太阳 / 月亮图标按钮 */
+.theme-icon-button{width:42px;height:42px;padding:0!important;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.theme-icon-button svg{width:19px;height:19px;display:block;transition:transform .25s ease,color .2s}
+.theme-icon-button:hover svg{transform:rotate(18deg) scale(1.08)}
+.login-theme-button{position:absolute;top:24px;right:26px}
+html[data-theme="dark"] .theme-icon-button{color:#ffd479;border-color:#3a4b63;background:#233149}
+html[data-theme="dark"] .theme-icon-button:hover{background:#2d3d57}
+
+/* 红色删除按钮（编辑界面内） */
+.danger{height:48px;padding:0 22px;border:1px solid #e8b4bc;border-radius:11px;background:#fff;color:#c8394c;font-weight:750;font-size:14px;transition:.16s;-webkit-appearance:none;appearance:none}
+.danger:hover{background:#fff1f3;border-color:#dc8a97;color:#ad2c3d}
+.danger:active{transform:translateY(1px)}
+html[data-theme="dark"] .danger{background:#3a2029;border-color:#6b3a45;color:#ff9fae}
+html[data-theme="dark"] .danger:hover{background:#4a2733;border-color:#8a4653;color:#ffb9c4}
+/* 表单内的小号删除按钮（与 ghost/small-primary 同高） */
+.ddl-actions .danger,.website-form-actions .danger{height:36px;padding:0 16px;border-radius:9px;font-size:13px}
+
+
+/* ---------- class/class.css ---------- */
+/* 改课表大小只需修改这两个值。 */
+:root {
+  --table-min-width: 700px;  /* 课表总宽度 */
+  --lesson-height: 50px;     /* 每一节的小框高度 */
+}
+
+/* 课表、时间设置与待定课程 */
+.summary{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-bottom:20px}.summary-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:21px 24px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.summary-card strong{font-size:14px}.summary-card p{margin:9px 0 0;color:#6b7892;font-size:13px;line-height:1.65}.summary-card.accent{background:linear-gradient(120deg,#365ac8,#5276d9);color:#fff;border:0}.summary-card.accent p{color:#e9eeff}.summary-card.accent .big{font-size:26px;font-weight:800;line-height:1.2;margin-top:5px}
+.schedule-panel{background:#fff;border:1px solid #e5eaf3;border-radius:18px;overflow:hidden;box-shadow:0 5px 22px rgba(26,43,83,.04)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;border-bottom:1px solid #edf0f5;flex-wrap:wrap}.panel-head h2{font-size:20px;margin:0 0 5px}.panel-head p{font-size:12px;color:#8792a7;margin:0}.week-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.week-controls button{height:38px;border:1px solid #dce3ee;background:#fff;border-radius:9px;color:#42516e;padding:0 12px;font-size:13px;font-weight:700}.week-controls button:hover:not(:disabled){background:#f0f3fb}.week-controls button:disabled{opacity:.4;cursor:not-allowed}.week-controls .view-toggle{background:#eef2ff;border-color:#d8e2ff;color:#365ac8}.week-picker{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#53627c;white-space:nowrap}.week-picker select{border:1px solid #dce3ee;background:#f9fbff;color:#243456;border-radius:9px;padding:8px 24px 8px 9px;outline:none}
+.table-wrap{overflow-x:auto;scrollbar-color:#c9d5ef transparent}.timetable{border-collapse:separate;border-spacing:0;width:100%;min-width:1020px;table-layout:fixed}.timetable th,.timetable td{border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;vertical-align:top}.timetable th:last-child,.timetable td:last-child{border-right:0}.timetable tr:last-child td{border-bottom:0}.timetable thead th{height:58px;background:#f9faff;text-align:center;padding:11px 6px;color:#465570;font-size:13px;font-weight:750}.timetable thead th:first-child{width:104px}.day-date{display:block;margin-top:4px;font-size:11px;color:#8190aa;font-weight:600}.timetable thead th.is-today{background:#eaf0ff;color:#365ac8}.timetable thead th.is-today .day-date{color:#365ac8}.timetable tbody th{background:#fcfdff;border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;color:#4b5a75;font-size:12px;font-weight:800;text-align:center;padding:18px 8px;line-height:1.5}.slot-time{display:block;margin-top:5px;color:#7182a0;font-size:11px;font-weight:600}.timetable tbody tr:last-child th{border-bottom:0}.timetable td{height:122px;padding:8px;background:#fff}.timetable td.empty{background:#fff}.course{border-left:3px solid var(--tone);border-radius:8px;padding:10px 9px 11px;background:var(--tint);margin-bottom:7px;min-height:97px}.course:last-child{margin-bottom:0}.course-name{font-size:13px;font-weight:800;line-height:1.4;margin:0 0 8px;color:#243455}.course-meta{display:flex;align-items:flex-start;gap:5px;font-size:11px;line-height:1.45;color:#5e6e87;margin:3px 0}.course-meta svg{width:13px;height:13px;flex:none;margin-top:1px}.course-code{font-size:10px;color:#8390a8;margin-top:7px}.course[data-tone="blue"]{--tone:#4a80db;--tint:#edf4ff}.course[data-tone="amber"]{--tone:#e4a33c;--tint:#fff7e9}.course[data-tone="violet"]{--tone:#9a70d2;--tint:#f6efff}.course[data-tone="indigo"]{--tone:#6674d5;--tint:#f0f1ff}.course[data-tone="teal"]{--tone:#35a99d;--tint:#eaf9f6}.course[data-tone="rose"]{--tone:#dc7a88;--tint:#fff0f2}
+.below{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.note-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:22px 24px}.note-card h2{font-size:16px;margin:0 0 13px}.note-card ul{margin:0;padding-left:20px;color:#5e6e87;font-size:13px;line-height:1.75}.note-card li+li{margin-top:7px}.muted{color:#8b97aa}.site-foot{font-size:12px;color:#91a0b6;margin:23px 0 0;text-align:center}
+.summary{grid-template-columns:1fr}.schedule-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:16px;align-items:start}.schedule-layout .schedule-panel{min-width:0}.pending-card{position:sticky;top:16px}.pending-card h2{margin-bottom:12px}.pending-card ul{overflow-wrap:anywhere}
+.summary{display:none}.app{padding-top:18px}.topbar{margin-bottom:17px}.main-nav{margin-bottom:10px}.panel-head{padding:13px 16px}.timetable{min-width:var(--table-min-width)}.timetable thead th{height:42px;padding:6px 4px}.timetable thead th:first-child{width:92px}.timetable tbody th{padding:7px 4px;font-size:11px}.slot-time{font-size:10px;margin-top:3px}
+.timetable td{height:auto;padding:0}.period-grid{display:grid;grid-template-rows:repeat(var(--rows),var(--lesson-height));position:relative}.period-guide{grid-column:1;position:relative;border-bottom:1px dashed #dfe6f2;background:#fff}.period-guide:last-of-type{border-bottom:0}.period-grid .course{grid-column:1;z-index:1;margin:2px;min-height:0;overflow:hidden;padding:3px 4px}.period-grid .course-name{font-size:10px;margin-bottom:1px;line-height:1.15}.period-grid .course-meta{font-size:9px;margin:1px 0;line-height:1.1}.period-grid .course-meta svg{width:9px;height:9px}.period-grid .course-code{display:none}.period-grid .course[data-duration="1"] .course-meta{display:none}.period-list{padding:5px;min-height:var(--lesson-height)}.period-list .course{min-height:0;margin:0 0 5px;padding:6px}.period-list .course:last-child{margin-bottom:0}.period-rail{display:flex;gap:3px;margin-top:6px}.period-rail span{flex:1;text-align:center;border:1px solid #cfd8e8;border-radius:5px;background:#fff;color:#8090aa;font-size:10px;font-weight:700}.period-rail span.active{background:var(--tone);border-color:var(--tone);color:#fff}
+.manual-time{display:flex;align-items:center;gap:6px}.manual-time input{width:55px;text-align:center}.manual-time b{font-size:18px;color:#586b8a}.time-setting .time-preview{min-height:16px}
+.time-dialog{width:min(92vw,640px);max-height:86vh;border:1px solid #e2e8f3;border-radius:18px;padding:24px;box-shadow:0 28px 80px rgba(23,35,61,.22)}.time-dialog::backdrop{background:rgba(21,32,55,.48)}.dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.dialog-head h2{font-size:21px;margin:0 0 7px}.dialog-head p{font-size:13px;color:#697994;line-height:1.6;margin:0}.time-dialog .settings-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px}.time-setting small{display:block;margin-top:7px;font-size:11px;color:#70829d}
+.period-grid .course-name{font-size:11px}.period-grid .course-meta{font-size:10px}html[data-theme="dark"] .timetable thead th.is-today .day-date{color:#d7e3ff}
+@media(max-width:1120px){.schedule-layout{grid-template-columns:1fr}.pending-card{position:static}}
+@media(max-width:900px){.settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* 课程名称与地点字体放大（覆盖前面更小的规则） */
+.period-grid .course-name{font-size:12px;line-height:1.2}
+.period-grid .course-meta{font-size:11px;line-height:1.15}
+.period-grid .course-meta svg{width:11px;height:11px}
+.period-list .course-name{font-size:14px}
+.period-list .course-meta{font-size:12px}
+.period-list .course-meta svg{width:14px;height:14px}
+
+
+/* ---------- DDL/DDL.css ---------- */
+/* DDL 板块 */
+.file-note { color: #71809b; font-size: 12px; }
+.ddl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.ddl-head-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}.small-primary{height:36px;border:0;border-radius:9px;background:#365ac8;color:#fff;font-size:13px;font-weight:750;padding:0 14px}.ddl-count{font-size:12px;color:#4261ae;background:#edf2ff;border-radius:999px;padding:7px 12px;white-space:nowrap}.ddl-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;padding:20px;border:1px solid #e5eaf3;border-radius:14px;background:#f9fbff}.ddl-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:700;color:#34415b}.ddl-field input,.ddl-field textarea{width:100%;border:1px solid #d5ddea;border-radius:9px;background:#fff;padding:10px 12px;color:#253553;outline:none}.ddl-field input{height:42px}.ddl-field textarea{resize:vertical;min-height:85px}.ddl-field input:focus,.ddl-field textarea:focus{border-color:#5775d6;box-shadow:0 0 0 3px #e8edff}.ddl-wide,.ddl-actions{grid-column:1/-1}.ddl-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ddl-actions .primary{width:auto;padding:0 22px}.ddl-actions .settings-status{margin:0!important}.ddl-list{display:grid;gap:12px;margin-top:20px}.ddl-item{border:1px solid #e5eaf3;border-radius:14px;padding:17px 19px;background:#fff}.ddl-item.overdue{border-color:#efd1d5;background:#fffafa}.ddl-item-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.ddl-item h3{font-size:17px;margin:0 0 4px}.ddl-item-meta{font-size:12px;color:#71809b}.ddl-remaining{font-size:13px;font-weight:800;color:#365ac8;background:#edf2ff;border-radius:9px;padding:7px 10px;white-space:nowrap}.ddl-item.overdue .ddl-remaining{color:#ad4d59;background:#ffedf0}.ddl-content{font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0!important;color:#33435f!important}.ddl-address{font-size:12px;color:#61728f;overflow-wrap:anywhere}.ddl-address a{color:#365ac8}.ddl-item-actions{display:flex;gap:8px;margin-top:12px}.ddl-item-actions button{border:1px solid #dce3ee;background:#fff;color:#42516e;border-radius:8px;padding:6px 10px;font-size:12px}.ddl-empty{padding:45px 18px;text-align:center;color:#8792a7;border:1px dashed #d4ddea;border-radius:14px}
+
+/* ===== 截止时间：黄色框，位于剩余时间上方 ===== */
+.ddl-item-head{align-items:flex-start}
+.ddl-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex:none}
+.ddl-deadline-box{font-size:12.5px;font-weight:800;color:#8a5a00;background:#fff5d1;border:1.5px solid #f2cc55;border-radius:9px;padding:6px 11px;white-space:nowrap;letter-spacing:.01em}
+.ddl-item.overdue .ddl-deadline-box{color:#a33b48;background:#ffeef0;border-color:#eeb2ba}
+.ddl-item.is-done .ddl-deadline-box{color:#7b8296;background:#f1f3f7;border-color:#d9dee8}
+
+/* ===== 已完成状态 ===== */
+.ddl-item.is-done{background:#fafbfd;border-color:#e3e7ef}
+.ddl-item.is-done h3{text-decoration:line-through;text-decoration-thickness:1.5px;color:#9aa3b5}
+.ddl-item.is-done .ddl-content{text-decoration:line-through;text-decoration-thickness:1.5px;color:#9aa3b5!important}
+.ddl-item.is-done .ddl-item-meta,
+.ddl-item.is-done .ddl-address{color:#adb5c5}
+.ddl-item.is-done .ddl-remaining{color:#8b93a5;background:#eff1f5}
+
+/* ===== 右下角完成圆圈 ===== */
+.ddl-item{position:relative}
+.ddl-item-actions{display:flex;gap:8px;align-items:center;margin-top:12px;min-height:26px}
+.ddl-done-toggle{position:absolute;right:16px;bottom:14px;width:26px;height:26px;flex:none;border-radius:50%;border:1.8px solid #c3ccdc;background:#fff;padding:0;cursor:pointer;transition:.16s;-webkit-appearance:none;appearance:none;display:flex;align-items:center;justify-content:center}
+.ddl-done-toggle:hover{border-color:#57c08b;background:#f2fbf6;transform:scale(1.08)}
+.ddl-done-toggle[aria-pressed="true"]{background:#57c08b;border-color:#57c08b}
+.ddl-done-toggle[aria-pressed="true"]::after{content:"";width:6px;height:11px;margin-top:-3px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.ddl-done-toggle[aria-pressed="true"]:hover{background:#469e72;border-color:#469e72}
+html[data-theme="dark"] .ddl-deadline-box{color:#ffd97a;background:#4a3b16;border-color:#a8862c}
+html[data-theme="dark"] .ddl-item.is-done{background:#181f2c;border-color:#2c3547}
+html[data-theme="dark"] .ddl-done-toggle{background:#1a2638;border-color:#4a5a72}
+html[data-theme="dark"] .ddl-done-toggle:hover{background:#22402f;border-color:#57c08b}
+
+/* 卡片内间距收紧，避免留白过大 */
+.ddl-item{padding:15px 18px}
+.ddl-item h3{font-size:16.5px;margin:0}
+.ddl-content{margin:9px 0 0!important;font-size:13.5px}
+.ddl-address{margin-top:8px}
+.ddl-item-actions{margin-top:6px;min-height:24px}
+.ddl-done-toggle{right:15px;bottom:13px}
+
+/* 每条作业的编辑 / 删除按钮（文件来源也可用） */
+.ddl-item{cursor:pointer;transition:box-shadow .16s,border-color .16s}
+.ddl-item:hover{box-shadow:0 4px 16px rgba(26,43,83,.07);border-color:#d8e0ef}
+.ddl-act-btn{height:26px;min-width:44px;padding:0 10px;border:1px solid #dce3ee;border-radius:7px;background:#fff;color:#4a5a78;font-size:12px;font-weight:700;cursor:pointer;transition:.15s;-webkit-appearance:none;appearance:none}
+.ddl-act-btn:hover{background:#eef2fb;border-color:#c2cfe6;color:#365ac8}
+.ddl-act-danger:hover{background:#fff1f3;border-color:#f0c2c8;color:#c4455a}
+html[data-theme="dark"] .ddl-item:hover{border-color:#3d4c63}
+html[data-theme="dark"] .ddl-act-btn{background:#233149;border-color:#3a4b63;color:#cfdcef}
+html[data-theme="dark"] .ddl-act-btn:hover{background:#2d3d57;border-color:#4a5d79;color:#9db8ff}
+html[data-theme="dark"] .ddl-act-danger:hover{background:#3d2731;border-color:#6b3a45;color:#ff9fae}
+
+
+/* ---------- website/website.css ---------- */
+/* 常用网站板块 */
+.file-note { color: #71809b; font-size: 12px; }
+.website-wrap{overflow-x:auto;margin-top:22px}.website-table{width:100%;min-width:600px;border-collapse:collapse;text-align:left}.website-table th,.website-table td{padding:13px 12px;border-bottom:1px solid #e5eaf3;font-size:13px}.website-table th{color:#66748e;background:#f9fbff}.website-table td{color:#394864}.website-table td:nth-child(2){overflow-wrap:anywhere}.website-table a{color:#365ac8;font-weight:700}.website-table .site-actions{white-space:nowrap;text-align:right}.site-actions button{border:0;background:transparent;color:#5872b9;font-size:12px;padding:4px}.website-add{margin-top:18px}.website-form{display:grid;grid-template-columns:1fr 1.5fr 1.5fr;gap:12px;margin-top:16px;padding:18px;border:1px solid #e5eaf3;border-radius:12px;background:#f9fbff}.website-form label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.website-form input{width:100%;height:40px;border:1px solid #d5ddea;border-radius:8px;padding:0 10px;background:#fff;color:#253553}.website-form-actions{grid-column:1/-1;display:flex;align-items:center;gap:10px}.website-status{font-size:12px;color:#61728f}.website-empty{padding:30px 12px;color:#8792a7;text-align:center}
+
+/* ===== 拖拽排序 ===== */
+.website-table .drag-cell{width:34px;padding-right:0;text-align:center}
+.drag-handle{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;color:#a8b3c6;font-size:15px;line-height:1;cursor:grab;user-select:none;transition:.15s}
+.drag-handle:hover{background:#eef2fb;color:#5872b9}
+.website-table tr[draggable="true"]{cursor:default}
+.website-table tr.dragging{opacity:.45}
+.website-table tr.dragging .drag-handle{cursor:grabbing}
+.website-table tbody tr{transition:background .12s}
+.website-table tbody tr:hover{background:#f8faff}
+.website-table td{padding-top:9px;padding-bottom:9px}
+
+/* ===== 编辑 / 删除按钮：圆角方框 ===== */
+.site-actions{white-space:nowrap;text-align:right}
+.site-actions .site-btn{display:inline-flex;align-items:center;justify-content:center;height:28px;min-width:46px;margin-left:6px;padding:0 11px;border:1px solid #dce3ee;border-radius:8px;background:#fff;color:#4a5a78;font-size:12px;font-weight:700;cursor:pointer;transition:.15s;-webkit-appearance:none;appearance:none}
+.site-actions .site-btn:hover{background:#eef2fb;border-color:#c2cfe6;color:#365ac8}
+.site-actions .site-btn-danger:hover{background:#fff1f3;border-color:#f0c2c8;color:#c4455a}
+html[data-theme="dark"] .drag-handle{color:#7b8aa3}
+html[data-theme="dark"] .drag-handle:hover{background:#243147;color:#9db8ff}
+html[data-theme="dark"] .site-actions .site-btn{background:#233149;border-color:#3a4b63;color:#cfdcef}
+html[data-theme="dark"] .site-actions .site-btn:hover{background:#2d3d57;border-color:#4a5d79;color:#9db8ff}
+html[data-theme="dark"] .site-actions .site-btn-danger:hover{background:#3d2731;border-color:#6b3a45;color:#ff9fae}
+html[data-theme="dark"] .website-table tbody tr:hover{background:#1e2a3d}
+
+/* 整行可点击编辑 */
+.website-table tbody tr[data-id]{cursor:pointer}
+
+
+/* ---------- main/theme.css ---------- */
+/* 夜间模式、窄屏和打印样式 */
+html[data-theme="dark"] .file-note { color: #acbad0; }
+html[data-theme="dark"]{color-scheme:dark;color:#e9eef8;background:#101827}html[data-theme="dark"] body{background:#101827}html[data-theme="dark"] .login-screen{background:radial-gradient(circle at 20% 15%,#22345d 0,transparent 35%),#101827}html[data-theme="dark"] .login-card,html[data-theme="dark"] .student-chip,html[data-theme="dark"] .schedule-panel,html[data-theme="dark"] .note-card,html[data-theme="dark"] .content-card,html[data-theme="dark"] .time-dialog,html[data-theme="dark"] .ddl-item,html[data-theme="dark"] .summary-card:not(.accent){background:#1a2638;border-color:#344358;color:#e9eef8;box-shadow:none}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] .page-title,html[data-theme="dark"] .student-chip strong{color:#f2f6ff}html[data-theme="dark"] .login-lead,html[data-theme="dark"] .subtitle,html[data-theme="dark"] .content-card p,html[data-theme="dark"] .note-card ul,html[data-theme="dark"] .panel-head p,html[data-theme="dark"] .dialog-head p,html[data-theme="dark"] .ddl-item-meta,html[data-theme="dark"] .ddl-address,html[data-theme="dark"] .site-foot,html[data-theme="dark"] .login-foot,html[data-theme="dark"] .settings-status,html[data-theme="dark"] .website-status{color:#acbad0!important}html[data-theme="dark"] .ghost,html[data-theme="dark"] .nav-button,html[data-theme="dark"] .week-controls button,html[data-theme="dark"] .ddl-item-actions button,html[data-theme="dark"] .week-picker select{background:#233149;border-color:#3a4b63;color:#dce8f8}html[data-theme="dark"] .nav-button.active,html[data-theme="dark"] .small-primary{background:#5577df;border-color:#5577df;color:#fff}html[data-theme="dark"] .ghost:hover,html[data-theme="dark"] .nav-button:hover,html[data-theme="dark"] .week-controls button:hover:not(:disabled){background:#30415e}html[data-theme="dark"] .field label,html[data-theme="dark"] .ddl-field label,html[data-theme="dark"] .time-setting span,html[data-theme="dark"] .website-form label,html[data-theme="dark"] .week-picker{color:#d5e0f0}html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] select{background:#142033!important;border-color:#42516a!important;color:#f0f5ff!important}html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#91a2ba}html[data-theme="dark"] .time-setting,html[data-theme="dark"] .ddl-form,html[data-theme="dark"] .website-form,html[data-theme="dark"] .timetable thead th,html[data-theme="dark"] .timetable tbody th,html[data-theme="dark"] .website-table th{background:#202e43;border-color:#3a4b63;color:#d9e4f4}html[data-theme="dark"] .timetable td,html[data-theme="dark"] .period-guide{background:#182538;border-color:#344358}html[data-theme="dark"] .timetable th,html[data-theme="dark"] .timetable td,html[data-theme="dark"] .panel-head,html[data-theme="dark"] .website-table th,html[data-theme="dark"] .website-table td{border-color:#344358}html[data-theme="dark"] .timetable thead th.is-today{background:#2a4278;color:#f0f5ff}html[data-theme="dark"] .day-date,html[data-theme="dark"] .slot-time,html[data-theme="dark"] .time-setting small,html[data-theme="dark"] .manual-time b{color:#a9bbd3}html[data-theme="dark"] .course[data-tone]{--tint:#283a55}html[data-theme="dark"] .course-name{color:#f2f6ff}html[data-theme="dark"] .course-meta,html[data-theme="dark"] .course-code{color:#bfd0e8}html[data-theme="dark"] .period-rail span{background:#1b2b40;border-color:#60718a;color:#c1cee0}html[data-theme="dark"] .period-rail span.active{background:var(--tone);color:#111827}html[data-theme="dark"] .ddl-item.overdue{background:#382935;border-color:#80505d}html[data-theme="dark"] .ddl-content{color:#dce7f7!important}html[data-theme="dark"] .ddl-remaining,html[data-theme="dark"] .ddl-count{background:#2a4278;color:#dce8ff}html[data-theme="dark"] .ddl-item.overdue .ddl-remaining{background:#653845;color:#ffe2e8}html[data-theme="dark"] .ddl-empty{border-color:#44546b;color:#adbad0}html[data-theme="dark"] .website-table td{color:#dce7f7}html[data-theme="dark"] .website-table a,html[data-theme="dark"] .ddl-address a,html[data-theme="dark"] .site-actions button{color:#9db8ff}html[data-theme="dark"] .placeholder-badge{background:#2a4278;color:#e8efff}
+@media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.panel-head{align-items:flex-start;flex-direction:column}.week-controls{width:100%}.page-title{font-size:27px}.login-card{padding:30px 24px}.ddl-form,.website-form{grid-template-columns:1fr}.ddl-field{grid-column:1/-1}}
+@media(max-width:420px){.time-dialog .settings-grid{grid-template-columns:1fr}.ddl-head{flex-direction:column}.ddl-item-head{flex-direction:column}}
+@media print{.login-screen,.ghost,.week-controls,.main-nav,.site-foot,#placeholder-view,#ddl-view,#websites-view,.time-dialog{display:none!important}.app{padding:0}.summary{display:none}.schedule-layout{display:block}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.pending-card{margin-top:12px}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
+
+</style>
 </head>
-<body><p><a href="./main/main.html">进入我的学习空间</a></p></body>
+<body>
+  <main id="login" class="login-screen">
+    <button class="ghost login-theme-button" data-theme-toggle type="button">夜间模式</button>
+    <form id="login-form" class="login-card" autocomplete="on">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 学习空间</span></div>
+      <h1>欢迎回来</h1>
+      <p class="login-lead">登录后查看课表与个人学习空间。</p>
+      <div class="field"><label for="username">用户名</label><input id="username" name="username" type="text" autocomplete="username" required autofocus></div>
+      <div id="password-field" class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button id="login-button" class="primary" type="submit">进入学习空间</button>
+      <p id="login-error" class="error" role="alert" aria-live="polite"></p>
+      <div class="login-foot">2026–2027 学年 · 第 1 学期</div>
+    </form>
+  </main>
+
+  <main id="app" class="app hidden" aria-hidden="true">
+    <header class="topbar">
+      <div><p class="eyebrow">STUDY SPACE</p><h1 class="page-title">我的学习空间</h1><p class="subtitle" id="term"></p></div>
+      <div class="top-actions">
+        <button class="ghost" data-theme-toggle type="button">夜间模式</button>
+        <div class="student-chip"><strong id="student"></strong></div>
+        <button id="logout" class="ghost" type="button">退出登录</button>
+      </div>
+    </header>
+    <nav class="main-nav" aria-label="主要版块">
+      <button class="nav-button active" type="button" data-view="class" aria-current="page">课表</button>
+      <button class="nav-button" type="button" data-view="ddl">DDL</button>
+      <button class="nav-button" type="button" data-view="website">常用网站</button>
+      <button class="nav-button" type="button" data-view="one">板块一</button>
+      <button class="nav-button" type="button" data-view="two">板块二</button>
+      <button class="nav-button" type="button" data-view="three">板块三</button>
+    </nav>
+    <div id="class-root">
+      <section id="schedule-view" aria-label="课程表">
+        <div class="schedule-layout">
+          <section class="schedule-panel" aria-labelledby="schedule-heading">
+            <div class="panel-head">
+              <div><h2 id="schedule-heading">周课表</h2><p id="week-dates">手机上可左右滑动查看完整星期安排</p></div>
+              <div class="week-controls">
+                <button id="time-settings-button" type="button">上课时间设置</button>
+                <button id="prev-week" type="button" aria-label="上一周">← 上一周</button>
+                <button id="next-week" type="button" aria-label="下一周">下一周 →</button>
+                <button id="view-toggle" class="view-toggle" type="button">查看总课表</button>
+                <label class="week-picker" for="week">跳转 <select id="week"><option value="0">总课表</option></select></label>
+              </div>
+            </div>
+            <div class="table-wrap"><table class="timetable"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+          </section>
+          <aside class="note-card pending-card" aria-labelledby="pending-heading"><h2 id="pending-heading">待定课程</h2><ul id="unscheduled"></ul></aside>
+        </div>
+        <p class="site-foot">课程信息根据提供的课表 PDF 整理 · 请以学校最新安排为准</p>
+      </section>
+
+      <dialog id="time-dialog" class="time-dialog" aria-labelledby="time-heading">
+        <div class="dialog-head">
+          <div><h2 id="time-heading">上课时间设置</h2><p>分别输入小时和分钟，结束时间会自动计算。</p></div>
+          <button id="time-close" class="ghost" type="button" aria-label="关闭设置">关闭</button>
+        </div>
+        <div id="settings-grid" class="settings-grid"></div>
+        <p id="settings-status" class="settings-status" role="status" aria-live="polite">修改后自动保存到当前浏览器。</p>
+      </dialog>
+    </div>
+    <div id="ddl-root" class="hidden">
+      <section id="ddl-view" class="content-card" aria-labelledby="ddl-heading">
+        <div class="ddl-head">
+          <div>
+            <h2 id="ddl-heading">DDL · 作业安排</h2>
+          </div>
+          <div class="ddl-head-actions"><span id="ddl-count" class="ddl-count">0 项作业</span><button id="ddl-add-button" class="small-primary" type="button">＋ 添加作业</button></div>
+        </div>
+        <form id="ddl-form" class="ddl-form hidden">
+          <div class="ddl-field"><label for="ddl-course">课程</label><input id="ddl-course" type="text" maxlength="80" required placeholder="例如：高等量子力学"></div>
+          <div class="ddl-field"><label for="ddl-deadline">作业结束时间</label><input id="ddl-deadline" type="datetime-local" step="60" required></div>
+          <div class="ddl-field ddl-wide"><label for="ddl-content">作业内容</label><textarea id="ddl-content" rows="3" maxlength="1000" required placeholder="写下作业要求"></textarea></div>
+          <div class="ddl-field ddl-wide"><label for="ddl-address">提交地址</label><input id="ddl-address" type="text" maxlength="300" placeholder="网址或线下提交地点（可留空）"></div>
+          <div class="ddl-actions"><button id="ddl-submit" class="primary" type="submit">添加作业</button><button id="ddl-cancel" class="ghost" type="button">取消</button><button id="ddl-delete" class="danger hidden" type="button">删除</button><span id="ddl-status" class="settings-status" role="status" aria-live="polite"></span></div>
+        </form>
+        <div id="ddl-list" class="ddl-list"></div>
+      </section>
+    </div>
+    <div id="website-root" class="hidden">
+      <section id="websites-view" class="content-card" aria-labelledby="websites-heading">
+        <h2 id="websites-heading">常用网站</h2>
+        <div class="website-wrap">
+          <table class="website-table">
+            <thead><tr><th aria-label="拖动排序"></th><th>名称</th><th>网址</th><th>备注</th><th aria-label="操作"></th></tr></thead>
+            <tbody id="website-list"></tbody>
+          </table>
+        </div>
+        <button id="website-add-button" class="small-primary website-add" type="button">＋ 新增网址</button>
+        <form id="website-form" class="website-form hidden">
+          <div><label for="website-name">名称</label><input id="website-name" type="text" maxlength="80" required placeholder="例如：学校教务处"></div>
+          <div><label for="website-url">网址</label><input id="website-url" type="text" inputmode="url" maxlength="500" required placeholder="https://example.com"></div>
+          <div><label for="website-note">备注</label><input id="website-note" type="text" maxlength="200" placeholder="可留空"></div>
+          <div class="website-form-actions"><button id="website-submit" class="small-primary" type="submit">保存网址</button><button id="website-cancel" class="ghost" type="button">取消</button><button id="website-delete" class="danger hidden" type="button">删除</button><span id="website-status" class="website-status" role="status" aria-live="polite"></span></div>
+        </form>
+      </section>
+    </div>
+    <section id="placeholder-view" class="content-card placeholder-card hidden" aria-labelledby="placeholder-title">
+      <div id="placeholder-badge" class="placeholder-badge">01</div>
+      <h2 id="placeholder-title">板块一</h2>
+      <p>这个版块已经预留好，内容可以以后再添加。</p>
+    </section>
+  </main>
+
+<script>
+/* ==========================================================================
+   本文件由 build_single.py 自动生成，请勿直接编辑。
+   要修改内容，请编辑 main/ class/ DDL/ website/ 下的源文件，然后重新运行：
+       python build_single.py
+   ========================================================================== */
+
+// 模块间共享的命名空间
+const __RA = {};
+
+// ===== main/utils.js =====
+(function () {
+  const $ = id => document.getElementById(id);
+
+  function putText(id, value) {
+    $(id).textContent = value;
+  }
+
+  function make(tag, className = "", textValue) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (textValue !== undefined) node.textContent = textValue;
+    return node;
+  }
+
+  // 暴露给其他模块使用
+  __RA.$ = $;
+  __RA.putText = putText;
+  __RA.make = make;
+})();
+
+// ===== class/data.js =====
+(function () {
+  // 课表的加密数据。登录验证使用，不需要手动修改。
+  const encrypted = {"salt":"gTaoTTpPP4u7zLPp1NH04Q==","iv":"feIYXeTIrpyNLrvD","iterations":310000,"data":"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"};
+  const quickEncrypted = {"salt":"r7n4PMI3NwQJuX3fQRwXHQ==","iv":"eAuYEyrhcw4WemI3","iterations":310000,"data":"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"};
+
+  // 暴露给其他模块使用
+  __RA.encrypted = encrypted;
+  __RA.quickEncrypted = quickEncrypted;
+})();
+
+// ===== class/class.js =====
+(function () {
+  const {  $, make, putText  } = __RA;
+
+  const termStart = Date.UTC(2026, 8, 14);
+  const timeStorageKey = "ranqi.lessonStartTimes.v1";
+  const lessonMinutes = 45;
+  const shortBreakMinutes = 5;
+
+  // 默认上课时间（第一次打开或清空设置时使用）
+  const defaultStartTimes = {
+    1: "08:00",
+    3: "09:55",
+    6: "13:20",
+    8: "15:15",
+    11: "18:30",
+  };
+
+  let schedule = null;
+  let selectedWeek = 0;
+  let startTimes = {};
+
+  function todayInShanghai() {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit"
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day));
+  }
+
+  function currentAcademicWeek() {
+    return Math.max(1, Math.min(16, Math.floor((todayInShanghai() - termStart) / 604800000) + 1));
+  }
+
+  function weekDates(week) {
+    const start = new Date(termStart + (week - 1) * 604800000);
+    const end = new Date(termStart + week * 604800000 - 86400000);
+    const label = date => `${date.getUTCMonth() + 1} 月 ${date.getUTCDate()} 日`;
+    return `${label(start)}—${label(end)}`;
+  }
+
+  function readStartTimes() {
+    try {
+      const raw = localStorage.getItem(timeStorageKey);
+      // 从未保存过 → 使用默认时间
+      if (raw === null) return { ...defaultStartTimes };
+      const saved = JSON.parse(raw || "{}");
+      if (!saved || typeof saved !== "object" || Array.isArray(saved)) return { ...defaultStartTimes };
+      return Object.fromEntries(Object.entries(saved).filter(([lesson, time]) =>
+        [1, 3, 6, 8, 11].includes(Number(lesson)) &&
+        typeof time === "string" &&
+        /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time)
+      ));
+    } catch { return { ...defaultStartTimes }; }
+  }
+
+  function saveStartTimes() {
+    try {
+      localStorage.setItem(timeStorageKey, JSON.stringify(startTimes));
+      putText("settings-status", "已自动保存到当前浏览器。");
+    } catch {
+      putText("settings-status", "当前浏览器无法保存设置；本次打开期间仍可使用。");
+    }
+  }
+
+  function slotTimeRange(groupFirst, first, last) {
+    const start = startTimes[groupFirst];
+    if (!start) return "";
+    const [hours, minutes] = start.split(":").map(Number);
+    const base = hours * 60 + minutes;
+    const format = value =>
+      `${String(Math.floor(value / 60) % 24).padStart(2, "0")}:${String(value % 60).padStart(2, "0")}`;
+    const lessonStart = base + (first - groupFirst) * (lessonMinutes + shortBreakMinutes);
+    const lessonEnd = base + (last - groupFirst) * (lessonMinutes + shortBreakMinutes) + lessonMinutes;
+    return `${format(lessonStart)}—${format(lessonEnd)}`;
+  }
+
+  function buildSettings() {
+    const grid = $("settings-grid");
+    grid.replaceChildren();
+
+    for (const slot of schedule.slots) {
+      const first = Number(slot.id.split("-")[0]);
+      const last = Number(slot.id.split("-")[1]);
+      const setting = make("div", "time-setting");
+      setting.append(make("span", "", slot.label));
+
+      const entry = make("div", "manual-time");
+      const hour = document.createElement("input");
+      const minute = document.createElement("input");
+      for (const input of [hour, minute]) {
+        input.type = "text";
+        input.inputMode = "numeric";
+        input.maxLength = 2;
+        input.autocomplete = "off";
+      }
+      hour.placeholder = "时";
+      minute.placeholder = "分";
+      hour.setAttribute("aria-label", `${slot.label}起始时间的小时`);
+      minute.setAttribute("aria-label", `${slot.label}起始时间的分钟`);
+      if (startTimes[first]) [hour.value, minute.value] = startTimes[first].split(":");
+      entry.append(hour, make("b", "", ":"), minute);
+
+      const preview = make("small", "time-preview",
+        slotTimeRange(first, first, last) || "尚未设置起始时间");
+
+      const save = () => {
+        const h = hour.value.trim();
+        const m = minute.value.trim();
+        if (!h && !m) delete startTimes[first];
+        else if (/^\d{1,2}$/.test(h) && /^\d{1,2}$/.test(m) && Number(h) < 24 && Number(m) < 60) {
+          startTimes[first] = `${h.padStart(2, "0")}:${m.padStart(2, "0")}`;
+          hour.value = h.padStart(2, "0");
+          minute.value = m.padStart(2, "0");
+        } else {
+          putText("settings-status", "请填写有效的小时（0–23）和分钟（0–59）。");
+          return;
+        }
+        saveStartTimes();
+        preview.textContent = slotTimeRange(first, first, last) || "尚未设置起始时间";
+        drawCourses(selectedWeek);
+      };
+      hour.addEventListener("change", save);
+      minute.addEventListener("change", save);
+      setting.append(entry, preview);
+      grid.append(setting);
+    }
+  }
+
+  function icon(kind) {
+    const path = kind === "pin"
+      ? '<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>'
+      : kind === "clock"
+        ? '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
+        : '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>';
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+  }
+
+  function addMeta(parent, kind, label) {
+    const row = make("div", "course-meta");
+    row.innerHTML = icon(kind);
+    row.append(document.createTextNode(label));
+    parent.append(row);
+  }
+
+  function drawHeader(week) {
+    const head = $("table-head");
+    head.replaceChildren();
+    const row = document.createElement("tr");
+    row.append(make("th", "", "节次 / 星期"));
+
+    schedule.days.forEach((dayName, index) => {
+      const heading = document.createElement("th");
+      heading.append(make("span", "", dayName));
+      if (week > 0) {
+        const date = new Date(termStart + ((week - 1) * 7 + index) * 86400000);
+        heading.append(make("span", "day-date",
+          `${date.getUTCMonth() + 1} 月 ${date.getUTCDate()} 日`));
+        if (date.getTime() === todayInShanghai()) heading.classList.add("is-today");
+      }
+      row.append(heading);
+    });
+    head.append(row);
+  }
+
+  function drawCourses(week) {
+    drawHeader(week);
+    const body = $("table-body");
+    body.replaceChildren();
+    let count = 0;
+
+    for (const slot of schedule.slots) {
+      const [groupFirst, groupLast] = slot.id.split("-").map(Number);
+      const row = document.createElement("tr");
+      const heading = make("th", "", slot.label);
+      heading.append(make("span", "slot-time",
+        slotTimeRange(groupFirst, groupFirst, groupLast) || "--:--—--:--"));
+      row.append(heading);
+
+      for (let day = 1; day <= 7; day++) {
+        const cell = document.createElement("td");
+        const items = schedule.courses.filter(course =>
+          course.day === day && course.slot === slot.id &&
+          (week === 0 || course.weekNumbers.includes(week))
+        );
+        if (!items.length) cell.className = "empty";
+        const container = make("div", week === 0 ? "period-list" : "period-grid");
+
+        if (week !== 0) {
+          container.style.setProperty("--rows", String(groupLast - groupFirst + 1));
+          for (let period = groupFirst; period <= groupLast; period++) {
+            const guide = make("div", "period-guide");
+            guide.style.gridRow = String(period - groupFirst + 1);
+            container.append(guide);
+          }
+        }
+
+        for (const course of items) {
+          count++;
+          const match = course.periods.match(/(\d+)(?:[–-](\d+))?/);
+          const first = Number(match?.[1] || groupFirst);
+          const last = Number(match?.[2] || match?.[1] || groupLast);
+          const time = slotTimeRange(groupFirst, first, last);
+          const card = make("article", "course");
+          card.dataset.tone = course.tone;
+          card.dataset.duration = String(last - first + 1);
+          card.title = `${course.name} · ${course.weeks} · ${course.periods}${time ? ` · ${time}` : ""} · ${course.room}`;
+          if (week !== 0) card.style.gridRow = `${first - groupFirst + 1} / span ${last - first + 1}`;
+          card.append(make("p", "course-name", course.name));
+          if (week === 0) addMeta(card, "calendar", course.weeks);
+          if (week === 0 && time) addMeta(card, "clock", time);
+          addMeta(card, "pin", course.room);
+          card.append(make("div", "course-code", `课程代码 ${course.code}`));
+
+          if (week === 0) {
+            const rail = make("div", "period-rail");
+            rail.setAttribute("aria-label", `${course.periods}，共 ${last - first + 1} 节`);
+            for (let period = groupFirst; period <= groupLast; period++) {
+              rail.append(make("span", period >= first && period <= last ? "active" : ""));
+            }
+            card.append(rail);
+          }
+          container.append(card);
+        }
+
+        cell.append(container);
+        row.append(cell);
+      }
+      body.append(row);
+    }
+  }
+
+  function setWeek(week) {
+    selectedWeek = week;
+    $("week").value = String(week);
+    putText("schedule-heading", week === 0 ? "总课表" : `第 ${week} 周课表`);
+    putText("week-dates", week === 0
+      ? "显示本学期全部周次的课程 · 手机可左右滑动"
+      : `${weekDates(week)} · 手机可左右滑动查看`);
+    $("prev-week").disabled = week <= 1;
+    $("next-week").disabled = week === 0 || week >= 16;
+    putText("view-toggle", week === 0 ? "返回本周" : "查看总课表");
+    drawCourses(week);
+  }
+
+  function initClass() {
+    $("week").addEventListener("change", event => setWeek(Number(event.target.value)));
+    $("prev-week").addEventListener("click", () => { if (selectedWeek > 1) setWeek(selectedWeek - 1); });
+    $("next-week").addEventListener("click", () => { if (selectedWeek > 0 && selectedWeek < 16) setWeek(selectedWeek + 1); });
+    $("view-toggle").addEventListener("click", () => setWeek(selectedWeek === 0 ? currentAcademicWeek() : 0));
+    $("time-settings-button").addEventListener("click", () => $("time-dialog").showModal());
+    $("time-close").addEventListener("click", () => $("time-dialog").close());
+    $("time-dialog").addEventListener("click", event => {
+      if (event.target === $("time-dialog")) $("time-dialog").close();
+    });
+  }
+
+  function renderClass(data) {
+    schedule = data;
+    startTimes = readStartTimes();
+    buildSettings();
+    const picker = $("week");
+    picker.replaceChildren(new Option("总课表", "0"));
+    for (let week = 1; week <= 16; week++) {
+      picker.append(new Option(`第 ${week} 周`, String(week)));
+    }
+    const pending = $("unscheduled");
+    pending.replaceChildren();
+    for (const note of data.unscheduled) pending.append(make("li", "", note));
+    setWeek(currentAcademicWeek());
+  }
+
+  function clearClass() {
+    schedule = null;
+    selectedWeek = 0;
+    if ($("time-dialog").open) $("time-dialog").close();
+    $("table-body").replaceChildren();
+    $("table-head").replaceChildren();
+  }
+
+  // 暴露给其他模块使用
+  __RA.initClass = initClass;
+  __RA.renderClass = renderClass;
+  __RA.clearClass = clearClass;
+})();
+
+// ===== DDL/data.js =====
+(function () {
+  // 在这里手动添加作业。保存后，把整个 DDL 文件夹上传到 GitHub。
+  // 这些条目写在网页文件中，因此所有设备看到的内容相同。
+  // 截止时间使用北京时间，格式固定为“年-月-日 时:分”。
+  // 每项作业用一组 { ... }，组与组之间加逗号。
+  // 作业内容需要换行时，用反引号 ` 包住多行文字，网页会保留换行。
+
+  const manualAssignments = [
+    // 示例：删除每行开头的 // 后即可使用，再按需要修改内容。
+    // {
+    //   course: "高等量子力学",
+    //   deadline: "2026-10-25 18:00",
+    //   content: "完成第一章习题",
+    //   address: "https://example.com/submit",
+    // },
+
+    // 在这里继续添加下一项：
+    // {
+    //   course: "课程名称",
+    //   deadline: "2026-11-01 20:00",
+    //   content: "作业内容",
+    //   address: "提交网址或地点；没有可写空字符串",
+    // },
+    {
+      course: "学术诚信",
+      deadline: "2026-11-03 18:00",
+      content: "5000字学术论文",
+      address: "",
+    },
+
+    {
+      course: "体育艺术素养",
+      deadline: "2026-10-30 00:00",
+      content: "500字小论文",
+      address: "",
+    },
+
+    {
+      course: "国家安全概论",
+      deadline: "2026-10-31 00:00",
+      content: "3000字实践报告",
+      address: "",
+    },
+  ];
+
+  // 暴露给其他模块使用
+  __RA.manualAssignments = manualAssignments;
+})();
+
+// ===== DDL/DDL.js =====
+(function () {
+  const {  manualAssignments  } = __RA;
+  const {  $, make, putText  } = __RA;
+
+  const storageKey = "ranqi.assignments.v1";
+  const doneStorageKey = "ranqi.doneAssignments.v1";
+  const overrideKey = "ranqi.fileAssignmentOverrides.v1";
+  const removedKey = "ranqi.fileAssignmentsRemoved.v1";
+  let localAssignments = [];
+  let doneIds = new Set();
+  let editingId = null;
+  let editingSource = null;
+  // 对 data.js 条目的本地修改 / 删除（不改源文件）
+  let fileOverrides = {};
+  let fileRemoved = new Set();
+
+  function parseShanghaiTime(value) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/.exec(value);
+    if (!match) return NaN;
+    const [, year, month, day, hour, minute] = match.map(Number);
+    if (month < 1 || month > 12 || hour > 23 || minute > 59) return NaN;
+    if (new Date(Date.UTC(year, month - 1, day)).getUTCDate() !== day) return NaN;
+    return Date.parse(`${match[1]}-${match[2]}-${match[3]}T${match[4]}:${match[5]}:00+08:00`);
+  }
+
+  function fileAssignments() {
+    return manualAssignments.flatMap((item, index) => {
+      if (!item || typeof item.course !== "string" || typeof item.content !== "string") return [];
+      const id = `file-${index}`;
+      if (fileRemoved.has(id)) return [];
+      const deadline = parseShanghaiTime(item.deadline);
+      if (!Number.isFinite(deadline)) return [];
+      const base = {
+        id,
+        source: "file",
+        course: item.course,
+        deadline,
+        content: item.content,
+        address: typeof item.address === "string" ? item.address : ""
+      };
+      // 有本地修改则覆盖
+      const patch = fileOverrides[id];
+      return [patch ? { ...base, ...patch, id, source: "file" } : base];
+    });
+  }
+
+  function readLocalAssignments() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      if (!Array.isArray(saved)) return [];
+      return saved.filter(item =>
+        item && typeof item.id === "string" &&
+        typeof item.course === "string" && typeof item.content === "string" &&
+        typeof item.address === "string" && Number.isFinite(item.deadline)
+      );
+    } catch { return []; }
+  }
+
+  function saveLocalAssignments() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(localAssignments));
+      putText("ddl-status", "已保存到当前浏览器。");
+    } catch {
+      putText("ddl-status", "当前浏览器无法保存，关闭页面后可能丢失。");
+    }
+  }
+
+  function readDoneIds() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(doneStorageKey) || "[]");
+      return new Set(Array.isArray(saved) ? saved.filter(id => typeof id === "string") : []);
+    } catch { return new Set(); }
+  }
+
+  function saveDoneIds() {
+    try {
+      localStorage.setItem(doneStorageKey, JSON.stringify([...doneIds]));
+    } catch {}
+  }
+
+  function readFileOverrides() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(overrideKey) || "{}");
+      if (!saved || typeof saved !== "object" || Array.isArray(saved)) return {};
+      return saved;
+    } catch { return {}; }
+  }
+
+  function saveFileOverrides() {
+    try { localStorage.setItem(overrideKey, JSON.stringify(fileOverrides)); } catch {}
+  }
+
+  function readFileRemoved() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(removedKey) || "[]");
+      return new Set(Array.isArray(saved) ? saved.filter(id => typeof id === "string") : []);
+    } catch { return new Set(); }
+  }
+
+  function saveFileRemoved() {
+    try { localStorage.setItem(removedKey, JSON.stringify([...fileRemoved])); } catch {}
+  }
+
+  function deadlineLabel(timestamp) {
+    return new Intl.DateTimeFormat("zh-CN", {
+      timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", hour12: false
+    }).format(new Date(timestamp));
+  }
+
+  function remainingLabel(timestamp) {
+    const hours = Math.ceil((timestamp - Date.now()) / 3600000);
+    return hours <= 0 ? "已截止" : `剩余 ${Math.floor(hours / 24)}天${hours % 24}小时`;
+  }
+
+  function dateInputValue(timestamp) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    }).formatToParts(new Date(timestamp));
+    const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${value.year}-${value.month}-${value.day}T${value.hour}:${value.minute}`;
+  }
+
+  function resetForm() {
+    $("ddl-form").reset();
+    $("ddl-form").classList.add("hidden");
+    editingId = null;
+    editingSource = null;
+    $("ddl-delete").classList.add("hidden");
+    putText("ddl-submit", "添加作业");
+    putText("ddl-status", "");
+  }
+
+  function openEdit(item) {
+    editingId = item.id;
+    editingSource = item.source;
+    $("ddl-course").value = item.course;
+    $("ddl-deadline").value = dateInputValue(item.deadline);
+    $("ddl-content").value = item.content;
+    $("ddl-address").value = item.address;
+    $("ddl-delete").classList.remove("hidden");
+    putText("ddl-submit", "保存修改");
+    $("ddl-form").classList.remove("hidden");
+    $("ddl-course").focus();
+    $("ddl-form").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderDDL() {
+    const list = $("ddl-list");
+    list.replaceChildren();
+    const all = [...fileAssignments(), ...localAssignments];
+    // 未完成在前（按截止时间），已完成统一排到最后
+    const pending = all.filter(item => !doneIds.has(item.id))
+      .sort((a, b) => a.deadline - b.deadline || a.course.localeCompare(b.course, "zh-CN"));
+    const done = all.filter(item => doneIds.has(item.id))
+      .sort((a, b) => a.deadline - b.deadline || a.course.localeCompare(b.course, "zh-CN"));
+    const sorted = [...pending, ...done];
+
+    putText("ddl-count", `${pending.length} 项待完成${done.length ? ` · ${done.length} 项已完成` : ""}`);
+    if (!sorted.length) {
+      list.append(make("div", "ddl-empty", "还没有作业。可编辑 DDL/data.js，或点击“添加作业”。"));
+      return;
+    }
+
+    for (const item of sorted) {
+      const isDone = doneIds.has(item.id);
+      const card = make("article", "ddl-item");
+      if (isDone) card.classList.add("is-done");
+      else if (item.deadline <= Date.now()) card.classList.add("overdue");
+
+      const head = make("div", "ddl-item-head");
+      const heading = make("div");
+      heading.append(make("h3", "", item.course));
+      // 右侧：截止时间（黄色框）在上，剩余时间在下
+      const rightSide = make("div", "ddl-head-right");
+      rightSide.append(
+        make("span", "ddl-deadline-box", `${deadlineLabel(item.deadline)}`),
+        make("span", "ddl-remaining", remainingLabel(item.deadline))
+      );
+      head.append(heading, rightSide);
+      card.append(head, make("p", "ddl-content", item.content));
+
+      if (item.address) {
+        const address = make("div", "ddl-address", "提交地址：");
+        let url = null;
+        try { url = new URL(item.address); } catch {}
+        if (url && ["http:", "https:"].includes(url.protocol)) {
+          const link = make("a", "", item.address);
+          link.href = url.href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          address.append(link);
+        } else {
+          address.append(document.createTextNode(item.address));
+        }
+        card.append(address);
+      }
+
+      const actions = make("div", "ddl-item-actions");
+
+      // 右下角完成圆圈：点击切换完成状态
+      const toggle = make("button", "ddl-done-toggle");
+      toggle.type = "button";
+      toggle.setAttribute("aria-pressed", isDone ? "true" : "false");
+      toggle.title = isDone ? "标记为未完成" : "标记为已完成";
+      toggle.addEventListener("click", event => {
+        event.stopPropagation();
+        if (doneIds.has(item.id)) doneIds.delete(item.id);
+        else doneIds.add(item.id);
+        saveDoneIds();
+        renderDDL();
+      });
+
+      // 点击整张卡片打开编辑界面
+      card.addEventListener("click", event => {
+        if (event.target.closest("button") || event.target.closest("a")) return;
+        openEdit(item);
+      });
+      card.title = "点击编辑";
+
+      actions.append(toggle);
+      card.append(actions);
+      list.append(card);
+    }
+  }
+
+  // 删除当前正在编辑的条目
+  function deleteEditing() {
+    if (!editingId) return;
+    const label = $("ddl-course").value.trim() || "这项作业";
+    if (!confirm(`确定删除「${label}」吗？`)) return;
+    const id = editingId;
+    const source = editingSource;
+    if (source === "file") {
+      fileRemoved.add(id);
+      delete fileOverrides[id];
+      saveFileRemoved();
+      saveFileOverrides();
+    } else {
+      localAssignments = localAssignments.filter(value => value.id !== id);
+      saveLocalAssignments();
+    }
+    doneIds.delete(id);
+    saveDoneIds();
+    resetForm();
+    renderDDL();
+  }
+
+  function initDDL() {
+    localAssignments = readLocalAssignments();
+    doneIds = readDoneIds();
+    fileOverrides = readFileOverrides();
+    fileRemoved = readFileRemoved();
+    $("ddl-add-button").addEventListener("click", () => {
+      resetForm();
+      $("ddl-form").classList.remove("hidden");
+      $("ddl-course").focus();
+    });
+    $("ddl-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const course = $("ddl-course").value.trim();
+      const content = $("ddl-content").value.trim();
+      const address = $("ddl-address").value.trim();
+      const deadline = parseShanghaiTime($("ddl-deadline").value);
+      if (!course || !content || !Number.isFinite(deadline)) {
+        putText("ddl-status", "请填写课程、作业内容和有效的结束时间。");
+        return;
+      }
+      if (editingId && editingSource === "file") {
+        // 编辑 data.js 里的条目：存为本地覆盖，不改源文件
+        fileOverrides[editingId] = { course, content, address, deadline };
+        saveFileOverrides();
+        putText("ddl-status", "已保存修改（仅当前浏览器）。");
+      } else {
+        const item = { id: editingId || crypto.randomUUID(), course, content, address, deadline };
+        if (editingId) localAssignments = localAssignments.map(value => value.id === editingId ? item : value);
+        else localAssignments.push(item);
+        saveLocalAssignments();
+      }
+      resetForm();
+      renderDDL();
+    });
+    $("ddl-cancel").addEventListener("click", resetForm);
+    $("ddl-delete").addEventListener("click", deleteEditing);
+    setInterval(() => {
+      if (!$("ddl-root").classList.contains("hidden")) renderDDL();
+    }, 60000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !$("ddl-root").classList.contains("hidden")) renderDDL();
+    });
+    renderDDL();
+  }
+
+  function clearDDL() {
+    resetForm();
+  }
+
+  // 暴露给其他模块使用
+  __RA.renderDDL = renderDDL;
+  __RA.initDDL = initDDL;
+  __RA.clearDDL = clearDDL;
+})();
+
+// ===== website/data.js =====
+(function () {
+  // 在这里手动添加常用网站。保存后，把整个 website 文件夹上传到 GitHub。
+  // 这些条目写在网页文件中，因此所有设备看到的内容相同。
+  // 网址请写完整的 https:// 地址；每一项之间用逗号隔开。
+
+  const manualWebsites = [
+    {
+      name: "北理工教研一体化",
+      url: "https://jxzxehall.bit.edu.cn/new/index.html?browser=no",
+      note: "教务平台",
+    },
+
+    {
+      name: "Yandex",
+      url: "https://yandex.com/",
+      note: "万能搜索网站",
+    },
+
+    {
+      name: "Google Scholar",
+      url: "https://scholar.google.com/",
+      note: "谷歌学术",
+    },
+
+    {
+      name: "z-library",
+      url: "https://zh.zlib.bz/",
+      note: "图书馆",
+    },
+  ];
+
+  // 暴露给其他模块使用
+  __RA.manualWebsites = manualWebsites;
+})();
+
+// ===== website/website.js =====
+(function () {
+  const {  manualWebsites  } = __RA;
+  const {  $, make, putText  } = __RA;
+
+  const storageKey = "ranqi.websites.v1";
+  const orderStorageKey = "ranqi.websiteOrder.v1";
+  const overrideKey = "ranqi.fileWebsiteOverrides.v1";
+  const removedKey = "ranqi.fileWebsitesRemoved.v1";
+  let localWebsites = [];
+  let editingId = null;
+  let editingSource = null;
+  let manualOrder = [];
+  let dragRow = null;
+  let justDragged = false;
+  // 对 data.js 条目的本地修改 / 删除（不改源文件）
+  let fileOverrides = {};
+  let fileRemoved = new Set();
+
+  function normalizeUrl(value) {
+    const candidate = /^[a-z][a-z\d+.-]*:/i.test(value) ? value : `https://${value}`;
+    try {
+      const url = new URL(candidate);
+      return ["http:", "https:"].includes(url.protocol) && url.hostname ? url.href : null;
+    } catch { return null; }
+  }
+
+  function fileWebsites() {
+    return manualWebsites.flatMap((item, index) => {
+      if (!item || typeof item.name !== "string" || typeof item.url !== "string") return [];
+      const id = `file-${index}`;
+      if (fileRemoved.has(id)) return [];
+      const url = normalizeUrl(item.url);
+      if (!url) return [];
+      const base = {
+        id,
+        source: "file",
+        name: item.name,
+        url,
+        note: typeof item.note === "string" ? item.note : ""
+      };
+      const patch = fileOverrides[id];
+      return [patch ? { ...base, ...patch, id, source: "file" } : base];
+    });
+  }
+
+  function readLocalWebsites() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      if (!Array.isArray(saved)) return [];
+      return saved.filter(item =>
+        item && typeof item.id === "string" && typeof item.name === "string" &&
+        typeof item.url === "string" && typeof item.note === "string" &&
+        /^https?:\/\//.test(item.url)
+      );
+    } catch { return []; }
+  }
+
+  function saveLocalWebsites() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(localWebsites));
+      putText("website-status", "已保存到当前浏览器。");
+    } catch {
+      putText("website-status", "当前浏览器无法保存，关闭页面后可能丢失。");
+    }
+  }
+
+  function readOrder() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(orderStorageKey) || "[]");
+      return Array.isArray(saved) ? saved.filter(id => typeof id === "string") : [];
+    } catch { return []; }
+  }
+
+  function saveOrder() {
+    try { localStorage.setItem(orderStorageKey, JSON.stringify(manualOrder)); } catch {}
+  }
+
+  function readFileOverrides() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(overrideKey) || "{}");
+      if (!saved || typeof saved !== "object" || Array.isArray(saved)) return {};
+      return saved;
+    } catch { return {}; }
+  }
+
+  function saveFileOverrides() {
+    try { localStorage.setItem(overrideKey, JSON.stringify(fileOverrides)); } catch {}
+  }
+
+  function readFileRemoved() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(removedKey) || "[]");
+      return new Set(Array.isArray(saved) ? saved.filter(id => typeof id === "string") : []);
+    } catch { return new Set(); }
+  }
+
+  function saveFileRemoved() {
+    try { localStorage.setItem(removedKey, JSON.stringify([...fileRemoved])); } catch {}
+  }
+
+  // 按保存的顺序排列；没在新顺序里的项追加到末尾
+  function applyOrder(items) {
+    if (!manualOrder.length) return items;
+    const rank = new Map(manualOrder.map((id, index) => [id, index]));
+    return [...items].sort((a, b) => {
+      const ra = rank.has(a.id) ? rank.get(a.id) : Number.MAX_SAFE_INTEGER;
+      const rb = rank.has(b.id) ? rank.get(b.id) : Number.MAX_SAFE_INTEGER;
+      return ra - rb;
+    });
+  }
+
+  function resetForm() {
+    $("website-form").reset();
+    $("website-form").classList.add("hidden");
+    editingId = null;
+    editingSource = null;
+    $("website-delete").classList.add("hidden");
+    putText("website-submit", "保存网址");
+    putText("website-status", "");
+  }
+
+  function openEdit(item) {
+    editingId = item.id;
+    editingSource = item.source;
+    $("website-name").value = item.name;
+    $("website-url").value = item.url;
+    $("website-note").value = item.note;
+    $("website-delete").classList.remove("hidden");
+    putText("website-submit", "保存修改");
+    $("website-form").classList.remove("hidden");
+    $("website-name").focus();
+    $("website-form").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function renderWebsite() {
+    const list = $("website-list");
+    list.replaceChildren();
+    const all = applyOrder([...fileWebsites(), ...localWebsites]);
+    if (!all.length) {
+      const row = document.createElement("tr");
+      const cell = make("td", "website-empty", "还没有常用网站。可编辑 website/data.js，或点击下方“新增网址”。");
+      cell.colSpan = 4;
+      row.append(cell);
+      list.append(row);
+      return;
+    }
+
+    for (const item of all) {
+      const row = document.createElement("tr");
+      row.dataset.id = item.id;
+      row.draggable = true;
+
+      // 拖拽手柄
+      const handleCell = make("td", "drag-cell");
+      const handle = make("span", "drag-handle", "⠿");
+      handle.title = "拖动调整顺序";
+      handle.setAttribute("aria-hidden", "true");
+      handleCell.append(handle);
+      handleCell.title = "拖动调整顺序";
+
+      const name = make("td", "", item.name);
+      const urlCell = document.createElement("td");
+      const link = make("a", "", item.url);
+      link.href = item.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      urlCell.append(link);
+      const note = make("td", "", item.note);
+      const actions = make("td", "site-actions");
+
+      // 点击整行（不含链接和拖拽手柄）打开编辑
+      row.addEventListener("click", event => {
+        if (justDragged) return;
+        if (event.target.closest("a")) return;
+        if (event.target.closest(".drag-cell")) return;
+        openEdit(item);
+      });
+      row.title = "点击编辑";
+      row.append(handleCell, name, urlCell, note, actions);
+      list.append(row);
+    }
+  }
+
+  // 删除当前正在编辑的网址
+  function deleteEditing() {
+    if (!editingId) return;
+    const label = $("website-name").value.trim() || "这个网址";
+    if (!confirm(`确定删除「${label}」吗？`)) return;
+    const id = editingId;
+    const source = editingSource;
+    if (source === "file") {
+      fileRemoved.add(id);
+      delete fileOverrides[id];
+      saveFileRemoved();
+      saveFileOverrides();
+    } else {
+      localWebsites = localWebsites.filter(value => value.id !== id);
+      saveLocalWebsites();
+    }
+    manualOrder = manualOrder.filter(value => value !== id);
+    saveOrder();
+    resetForm();
+    renderWebsite();
+  }
+
+  function initWebsite() {
+    localWebsites = readLocalWebsites();
+    manualOrder = readOrder();
+    fileOverrides = readFileOverrides();
+    fileRemoved = readFileRemoved();
+    setupDragAndDrop();
+    $("website-add-button").addEventListener("click", () => {
+      resetForm();
+      $("website-form").classList.remove("hidden");
+      $("website-name").focus();
+    });
+    $("website-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const name = $("website-name").value.trim();
+      const url = normalizeUrl($("website-url").value.trim());
+      const note = $("website-note").value.trim();
+      if (!name || !url) {
+        putText("website-status", "请填写名称和有效的 http/https 网址。");
+        return;
+      }
+      if (editingId && editingSource === "file") {
+        // 编辑 data.js 里的条目：存为本地覆盖，不改源文件
+        fileOverrides[editingId] = { name, url, note };
+        saveFileOverrides();
+        putText("website-status", "已保存修改（仅当前浏览器）。");
+      } else {
+        const item = { id: editingId || crypto.randomUUID(), name, url, note };
+        if (editingId) localWebsites = localWebsites.map(value => value.id === editingId ? item : value);
+        else localWebsites.push(item);
+        saveLocalWebsites();
+      }
+      resetForm();
+      renderWebsite();
+    });
+    $("website-cancel").addEventListener("click", resetForm);
+    $("website-delete").addEventListener("click", deleteEditing);
+    renderWebsite();
+  }
+
+  function setupDragAndDrop() {
+    const list = $("website-list");
+
+    list.addEventListener("dragstart", event => {
+      const row = event.target.closest("tr[data-id]");
+      if (!row) return;
+      dragRow = row;
+      justDragged = true;
+      row.classList.add("dragging");
+      event.dataTransfer.effectAllowed = "move";
+      try { event.dataTransfer.setData("text/plain", row.dataset.id); } catch {}
+    });
+
+    list.addEventListener("dragover", event => {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "move";
+      const target = event.target.closest("tr[data-id]");
+      if (!target || target === dragRow) return;
+      const rect = target.getBoundingClientRect();
+      const after = event.clientY > rect.top + rect.height / 2;
+      target.parentNode.insertBefore(dragRow, after ? target.nextSibling : target);
+    });
+
+    list.addEventListener("drop", event => event.preventDefault());
+
+    list.addEventListener("dragend", () => {
+      if (!dragRow) return;
+      dragRow.classList.remove("dragging");
+      dragRow = null;
+      // 按当前 DOM 顺序记录
+      manualOrder = [...list.querySelectorAll("tr[data-id]")].map(row => row.dataset.id);
+      saveOrder();
+      // 稍后清除标记，避免拖动结束后误触发"点击编辑"
+      setTimeout(() => { justDragged = false; }, 60);
+    });
+  }
+
+  function clearWebsite() {
+    resetForm();
+  }
+
+  // 暴露给其他模块使用
+  __RA.renderWebsite = renderWebsite;
+  __RA.initWebsite = initWebsite;
+  __RA.clearWebsite = clearWebsite;
+})();
+
+// ===== main/main.js =====
+(function () {
+  const {  encrypted, quickEncrypted  } = __RA;
+  const {  initClass, renderClass, clearClass  } = __RA;
+  const {  initDDL, renderDDL, clearDDL  } = __RA;
+  const {  initWebsite, renderWebsite, clearWebsite  } = __RA;
+  const {  $, putText  } = __RA;
+
+  const themeStorageKey = "ranqi.theme.v1";
+
+  const SUN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6L6 18M18 6l1.6-1.6"/></svg>';
+  const MOON_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.7 8.7 0 1 0 10.6 10.6Z"/></svg>';
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    for (const button of document.querySelectorAll("[data-theme-toggle]")) {
+      // 当前是夜间 → 显示太阳（点击切回白天）；当前是白天 → 显示月亮
+      const isDark = theme === "dark";
+      button.innerHTML = isDark ? SUN_ICON : MOON_ICON;
+      button.setAttribute("aria-label", isDark ? "切换到白天模式" : "切换到夜间模式");
+      button.setAttribute("title", isDark ? "切换到白天模式" : "切换到夜间模式");
+      button.classList.add("theme-icon-button");
+    }
+    try { localStorage.setItem(themeStorageKey, theme); } catch {}
+  }
+
+  function showView(view) {
+    $("class-root").classList.toggle("hidden", view !== "class");
+    $("ddl-root").classList.toggle("hidden", view !== "ddl");
+    $("website-root").classList.toggle("hidden", view !== "website");
+
+    if (view === "ddl") renderDDL();
+    if (view === "website") renderWebsite();
+
+    const placeholder = ["one", "two", "three"].includes(view);
+    $("placeholder-view").classList.toggle("hidden", !placeholder);
+    if (placeholder) {
+      const number = { one: 1, two: 2, three: 3 }[view];
+      putText("placeholder-title", `板块${["", "一", "二", "三"][number]}`);
+      putText("placeholder-badge", String(number).padStart(2, "0"));
+    }
+
+    for (const button of document.querySelectorAll(".nav-button")) {
+      const active = button.dataset.view === view;
+      button.classList.toggle("active", active);
+      if (active) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  const decode = value => Uint8Array.from(atob(value), char => char.charCodeAt(0));
+
+  async function unlock(password, payload = encrypted) {
+    const bytes = new TextEncoder().encode(password);
+    const source = await crypto.subtle.importKey("raw", bytes, "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: decode(payload.salt), iterations: payload.iterations, hash: "SHA-256" },
+      source,
+      { name: "AES-GCM", length: 256 },
+      false,
+      ["decrypt"]
+    );
+    const plain = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: decode(payload.iv) },
+      key,
+      decode(payload.data)
+    );
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+
+  function updateLoginMode() {
+    const quick = $("username").value.trim() === "1";
+    $("password-field").classList.toggle("hidden", quick);
+    $("password").required = !quick;
+    if (quick) $("password").value = "";
+    $("login-button").textContent = quick ? "快速进入" : "进入学习空间";
+  }
+
+
+  async function start() {
+    let savedTheme = "light";
+    try { if (localStorage.getItem(themeStorageKey) === "dark") savedTheme = "dark"; } catch {}
+    setTheme(savedTheme);
+
+  
+
+    initClass();
+    initDDL();
+    initWebsite();
+
+    for (const button of document.querySelectorAll("[data-theme-toggle]")) {
+      button.addEventListener("click", () => {
+        setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+      });
+    }
+
+    $("username").addEventListener("input", updateLoginMode);
+    $("login-form").addEventListener("submit", async event => {
+      event.preventDefault();
+      putText("login-error", "");
+      const button = $("login-button");
+      button.disabled = true;
+      button.textContent = "正在验证…";
+      try {
+        const username = $("username").value.trim();
+        let data;
+        if (username === "1") data = await unlock("1", quickEncrypted);
+        else if (username === "ranqi") data = await unlock($("password").value);
+        else throw new Error("invalid");
+
+        renderClass(data);
+        putText("term", data.term);
+        putText("student", data.student);
+        showView("class");
+        $("login").classList.add("hidden");
+        $("app").classList.remove("hidden");
+        $("app").removeAttribute("aria-hidden");
+        $("password").value = "";
+      } catch {
+        putText("login-error", "用户名或密码不正确");
+        $("password").value = "";
+        ( $("username").value.trim() === "1" ? $("username") : $("password") ).focus();
+      } finally {
+        button.disabled = false;
+        updateLoginMode();
+      }
+    });
+
+    for (const button of document.querySelectorAll(".nav-button")) {
+      button.addEventListener("click", () => showView(button.dataset.view));
+    }
+
+    $("logout").addEventListener("click", () => {
+      clearClass();
+      clearDDL();
+      clearWebsite();
+      $("app").classList.add("hidden");
+      $("app").setAttribute("aria-hidden", "true");
+      $("login").classList.remove("hidden");
+      $("login-form").reset();
+      updateLoginMode();
+      $("username").focus();
+    });
+  }
+
+  start().catch(error => {
+    console.error(error);
+    putText("login-error", "页面文件加载失败。请确认 main、class、DDL、website 文件夹都已上传。");
+    $("login-button").disabled = true;
+  });
+})();
+</script>
+</body>
 </html>

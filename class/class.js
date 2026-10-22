@@ -5,6 +5,15 @@ const timeStorageKey = "ranqi.lessonStartTimes.v1";
 const lessonMinutes = 45;
 const shortBreakMinutes = 5;
 
+// 默认上课时间（第一次打开或清空设置时使用）
+const defaultStartTimes = {
+  1: "08:00",
+  3: "09:55",
+  6: "13:20",
+  8: "15:15",
+  11: "18:30",
+};
+
 let schedule = null;
 let selectedWeek = 0;
 let startTimes = {};
@@ -30,14 +39,17 @@ function weekDates(week) {
 
 function readStartTimes() {
   try {
-    const saved = JSON.parse(localStorage.getItem(timeStorageKey) || "{}");
-    if (!saved || typeof saved !== "object" || Array.isArray(saved)) return {};
+    const raw = localStorage.getItem(timeStorageKey);
+    // 从未保存过 → 使用默认时间
+    if (raw === null) return { ...defaultStartTimes };
+    const saved = JSON.parse(raw || "{}");
+    if (!saved || typeof saved !== "object" || Array.isArray(saved)) return { ...defaultStartTimes };
     return Object.fromEntries(Object.entries(saved).filter(([lesson, time]) =>
       [1, 3, 6, 8, 11].includes(Number(lesson)) &&
       typeof time === "string" &&
       /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time)
     ));
-  } catch { return {}; }
+  } catch { return { ...defaultStartTimes }; }
 }
 
 function saveStartTimes() {

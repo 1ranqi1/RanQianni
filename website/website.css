@@ -1,3 +1,29 @@
 /* 常用网站板块 */
 .file-note { color: #71809b; font-size: 12px; }
 .website-wrap{overflow-x:auto;margin-top:22px}.website-table{width:100%;min-width:600px;border-collapse:collapse;text-align:left}.website-table th,.website-table td{padding:13px 12px;border-bottom:1px solid #e5eaf3;font-size:13px}.website-table th{color:#66748e;background:#f9fbff}.website-table td{color:#394864}.website-table td:nth-child(2){overflow-wrap:anywhere}.website-table a{color:#365ac8;font-weight:700}.website-table .site-actions{white-space:nowrap;text-align:right}.site-actions button{border:0;background:transparent;color:#5872b9;font-size:12px;padding:4px}.website-add{margin-top:18px}.website-form{display:grid;grid-template-columns:1fr 1.5fr 1.5fr;gap:12px;margin-top:16px;padding:18px;border:1px solid #e5eaf3;border-radius:12px;background:#f9fbff}.website-form label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.website-form input{width:100%;height:40px;border:1px solid #d5ddea;border-radius:8px;padding:0 10px;background:#fff;color:#253553}.website-form-actions{grid-column:1/-1;display:flex;align-items:center;gap:10px}.website-status{font-size:12px;color:#61728f}.website-empty{padding:30px 12px;color:#8792a7;text-align:center}
+
+/* ===== 拖拽排序 ===== */
+.website-table .drag-cell{width:34px;padding-right:0;text-align:center}
+.drag-handle{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;color:#a8b3c6;font-size:15px;line-height:1;cursor:grab;user-select:none;transition:.15s}
+.drag-handle:hover{background:#eef2fb;color:#5872b9}
+.website-table tr[draggable="true"]{cursor:default}
+.website-table tr.dragging{opacity:.45}
+.website-table tr.dragging .drag-handle{cursor:grabbing}
+.website-table tbody tr{transition:background .12s}
+.website-table tbody tr:hover{background:#f8faff}
+.website-table td{padding-top:9px;padding-bottom:9px}
+
+/* ===== 编辑 / 删除按钮：圆角方框 ===== */
+.site-actions{white-space:nowrap;text-align:right}
+.site-actions .site-btn{display:inline-flex;align-items:center;justify-content:center;height:28px;min-width:46px;margin-left:6px;padding:0 11px;border:1px solid #dce3ee;border-radius:8px;background:#fff;color:#4a5a78;font-size:12px;font-weight:700;cursor:pointer;transition:.15s;-webkit-appearance:none;appearance:none}
+.site-actions .site-btn:hover{background:#eef2fb;border-color:#c2cfe6;color:#365ac8}
+.site-actions .site-btn-danger:hover{background:#fff1f3;border-color:#f0c2c8;color:#c4455a}
+html[data-theme="dark"] .drag-handle{color:#7b8aa3}
+html[data-theme="dark"] .drag-handle:hover{background:#243147;color:#9db8ff}
+html[data-theme="dark"] .site-actions .site-btn{background:#233149;border-color:#3a4b63;color:#cfdcef}
+html[data-theme="dark"] .site-actions .site-btn:hover{background:#2d3d57;border-color:#4a5d79;color:#9db8ff}
+html[data-theme="dark"] .site-actions .site-btn-danger:hover{background:#3d2731;border-color:#6b3a45;color:#ff9fae}
+html[data-theme="dark"] .website-table tbody tr:hover{background:#1e2a3d}
+
+/* 整行可点击编辑 */
+.website-table tbody tr[data-id]{cursor:pointer}
