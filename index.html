@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>我的课程表</title>
+  <title>我的学习空间</title>
   <style>
     :root{font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:#17233d;background:#f5f7fb;font-synthesis:none}
     *{box-sizing:border-box} body{margin:0;min-height:100vh} button,input,select{font:inherit} button{cursor:pointer}
@@ -16,23 +16,27 @@
     .primary{width:100%;height:48px;border:0;border-radius:11px;background:#365ac8;color:white;font-weight:750;box-shadow:0 8px 20px rgba(54,90,200,.2)}.primary:hover{background:#294cb5}.primary:disabled{opacity:.65;cursor:wait}
     .error{min-height:22px;color:#c43d4c;font-size:13px;margin:10px 0 0}.login-foot{border-top:1px solid #edf0f5;margin-top:20px;padding-top:18px;font-size:12px;color:#8792a7;text-align:center}
     .app{max-width:1480px;margin:auto;padding:28px 30px 72px}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:28px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#5872b9;font-weight:800;margin:0 0 8px}.page-title{font-size:31px;line-height:1.2;margin:0 0 9px}.subtitle{margin:0;color:#6c7890;font-size:14px}.top-actions{display:flex;align-items:center;gap:12px}.student-chip{background:#fff;border:1px solid #e3e8f1;border-radius:12px;padding:10px 14px;color:#394864;font-size:13px;white-space:nowrap}.student-chip strong{display:block;color:#17233d;font-size:14px}.ghost{height:42px;border:1px solid #dce3ee;background:#fff;border-radius:11px;color:#42516e;padding:0 16px;font-weight:700}.ghost:hover{background:#f0f3fb}
+    .main-nav{display:flex;gap:8px;overflow-x:auto;padding:0 0 12px;margin:0 0 18px;scrollbar-width:thin}.nav-button{flex:none;border:1px solid #e1e7f1;background:#fff;border-radius:11px;padding:11px 18px;color:#53627c;font-size:14px;font-weight:750}.nav-button:hover{background:#f0f3fb}.nav-button.active{color:#fff;background:#365ac8;border-color:#365ac8;box-shadow:0 7px 16px rgba(54,90,200,.18)}
     .summary{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-bottom:20px}.summary-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:21px 24px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.summary-card strong{font-size:14px}.summary-card p{margin:9px 0 0;color:#6b7892;font-size:13px;line-height:1.65}.summary-card.accent{background:linear-gradient(120deg,#365ac8,#5276d9);color:#fff;border:0}.summary-card.accent p{color:#e9eeff}.summary-card.accent .big{font-size:26px;font-weight:800;line-height:1.2;margin-top:5px}
     .schedule-panel{background:#fff;border:1px solid #e5eaf3;border-radius:18px;overflow:hidden;box-shadow:0 5px 22px rgba(26,43,83,.04)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;border-bottom:1px solid #edf0f5;flex-wrap:wrap}.panel-head h2{font-size:20px;margin:0 0 5px}.panel-head p{font-size:12px;color:#8792a7;margin:0}.week-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.week-controls button{height:38px;border:1px solid #dce3ee;background:#fff;border-radius:9px;color:#42516e;padding:0 12px;font-size:13px;font-weight:700}.week-controls button:hover:not(:disabled){background:#f0f3fb}.week-controls button:disabled{opacity:.4;cursor:not-allowed}.week-controls .view-toggle{background:#eef2ff;border-color:#d8e2ff;color:#365ac8}.week-picker{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#53627c;white-space:nowrap}.week-picker select{border:1px solid #dce3ee;background:#f9fbff;color:#243456;border-radius:9px;padding:8px 24px 8px 9px;outline:none}
-    .table-wrap{overflow-x:auto;scrollbar-color:#c9d5ef transparent}.timetable{border-collapse:separate;border-spacing:0;width:100%;min-width:1020px;table-layout:fixed}.timetable th,.timetable td{border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;vertical-align:top}.timetable th:last-child,.timetable td:last-child{border-right:0}.timetable tr:last-child td{border-bottom:0}.timetable thead th{height:48px;background:#f9faff;text-align:center;padding:14px 6px;color:#465570;font-size:13px;font-weight:750}.timetable thead th:first-child{width:104px}.timetable tbody th{background:#fcfdff;border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;color:#4b5a75;font-size:12px;font-weight:800;text-align:center;padding:18px 8px;line-height:1.5}.timetable tbody tr:last-child th{border-bottom:0}.timetable td{height:122px;padding:8px;background:#fff}.timetable td.empty{background:#fff}.course{border-left:3px solid var(--tone);border-radius:8px;padding:10px 9px 11px;background:var(--tint);margin-bottom:7px;min-height:97px}.course:last-child{margin-bottom:0}.course-name{font-size:13px;font-weight:800;line-height:1.4;margin:0 0 8px;color:#243455}.course-meta{display:flex;align-items:flex-start;gap:5px;font-size:11px;line-height:1.45;color:#5e6e87;margin:3px 0}.course-meta svg{width:13px;height:13px;flex:none;margin-top:1px}.course-code{font-size:10px;color:#8390a8;margin-top:7px}.course[data-tone="blue"]{--tone:#4a80db;--tint:#edf4ff}.course[data-tone="amber"]{--tone:#e4a33c;--tint:#fff7e9}.course[data-tone="violet"]{--tone:#9a70d2;--tint:#f6efff}.course[data-tone="indigo"]{--tone:#6674d5;--tint:#f0f1ff}.course[data-tone="teal"]{--tone:#35a99d;--tint:#eaf9f6}.course[data-tone="rose"]{--tone:#dc7a88;--tint:#fff0f2}
+    .table-wrap{overflow-x:auto;scrollbar-color:#c9d5ef transparent}.timetable{border-collapse:separate;border-spacing:0;width:100%;min-width:1020px;table-layout:fixed}.timetable th,.timetable td{border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;vertical-align:top}.timetable th:last-child,.timetable td:last-child{border-right:0}.timetable tr:last-child td{border-bottom:0}.timetable thead th{height:58px;background:#f9faff;text-align:center;padding:11px 6px;color:#465570;font-size:13px;font-weight:750}.timetable thead th:first-child{width:104px}.day-date{display:block;margin-top:4px;font-size:11px;color:#8190aa;font-weight:600}.timetable thead th.is-today{background:#eaf0ff;color:#365ac8}.timetable thead th.is-today .day-date{color:#365ac8}.timetable tbody th{background:#fcfdff;border-right:1px solid #edf0f5;border-bottom:1px solid #edf0f5;color:#4b5a75;font-size:12px;font-weight:800;text-align:center;padding:18px 8px;line-height:1.5}.slot-time{display:block;margin-top:5px;color:#7182a0;font-size:11px;font-weight:600}.timetable tbody tr:last-child th{border-bottom:0}.timetable td{height:122px;padding:8px;background:#fff}.timetable td.empty{background:#fff}.course{border-left:3px solid var(--tone);border-radius:8px;padding:10px 9px 11px;background:var(--tint);margin-bottom:7px;min-height:97px}.course:last-child{margin-bottom:0}.course-name{font-size:13px;font-weight:800;line-height:1.4;margin:0 0 8px;color:#243455}.course-meta{display:flex;align-items:flex-start;gap:5px;font-size:11px;line-height:1.45;color:#5e6e87;margin:3px 0}.course-meta svg{width:13px;height:13px;flex:none;margin-top:1px}.course-code{font-size:10px;color:#8390a8;margin-top:7px}.course[data-tone="blue"]{--tone:#4a80db;--tint:#edf4ff}.course[data-tone="amber"]{--tone:#e4a33c;--tint:#fff7e9}.course[data-tone="violet"]{--tone:#9a70d2;--tint:#f6efff}.course[data-tone="indigo"]{--tone:#6674d5;--tint:#f0f1ff}.course[data-tone="teal"]{--tone:#35a99d;--tint:#eaf9f6}.course[data-tone="rose"]{--tone:#dc7a88;--tint:#fff0f2}
     .below{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.note-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:22px 24px}.note-card h2{font-size:16px;margin:0 0 13px}.note-card ul{margin:0;padding-left:20px;color:#5e6e87;font-size:13px;line-height:1.75}.note-card li+li{margin-top:7px}.muted{color:#8b97aa}.site-foot{font-size:12px;color:#91a0b6;margin:23px 0 0;text-align:center}
-    @media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.summary,.below{grid-template-columns:1fr}.panel-head{align-items:flex-start;flex-direction:column}.week-controls{width:100%}.page-title{font-size:27px}.login-card{padding:30px 24px}}
-    @media print{.login-screen,.ghost,.week-controls,.site-foot{display:none!important}.app{padding:0}.summary{display:none}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
+    .content-card{background:#fff;border:1px solid #e5eaf3;border-radius:18px;padding:28px;box-shadow:0 5px 22px rgba(26,43,83,.04)}.content-card h2{font-size:22px;margin:0 0 9px}.content-card p{color:#6b7892;font-size:14px;line-height:1.7;margin:0}.placeholder-card{min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.placeholder-badge{width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:#edf2ff;color:#365ac8;font-size:21px;font-weight:800;margin-bottom:20px}.settings-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}.time-setting{display:block;background:#f8faff;border:1px solid #e5eaf3;border-radius:12px;padding:13px}.time-setting span{display:block;font-size:13px;font-weight:750;color:#394864;margin-bottom:8px}.time-setting input{width:100%;height:38px;border:1px solid #d5ddea;border-radius:8px;background:#fff;padding:0 9px;color:#253553}.time-setting input:focus{outline:2px solid #b9c8f6;outline-offset:1px}.settings-status{margin-top:16px!important;font-size:12px!important;color:#5d708f!important}
+    @media(max-width:900px){.settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:780px){.app{padding:20px 14px 50px}.topbar{display:block}.top-actions{justify-content:space-between;margin-top:18px}.summary,.below{grid-template-columns:1fr}.panel-head{align-items:flex-start;flex-direction:column}.week-controls{width:100%}.page-title{font-size:27px}.login-card{padding:30px 24px}.settings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:420px){.settings-grid{grid-template-columns:1fr}}
+    @media print{.login-screen,.ghost,.week-controls,.main-nav,.site-foot,#placeholder-view,#settings-view{display:none!important}.app{padding:0}.summary{display:none}.schedule-panel,.note-card{box-shadow:none;border-color:#ccc}.table-wrap{overflow:visible}.timetable{min-width:0}.course{break-inside:avoid}}
   </style>
 </head>
 <body>
   <main id="login" class="login-screen">
     <form id="login-form" class="login-card" autocomplete="on">
-      <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 课程表</span></div>
+      <div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>RANQI · 学习空间</span></div>
       <h1>欢迎回来</h1>
-      <p class="login-lead">登录后查看课程安排、上课地点与调课提示。</p>
+      <p class="login-lead">登录后查看课表与个人学习空间。</p>
       <div class="field"><label for="username">用户名</label><input id="username" name="username" type="text" autocomplete="username" required autofocus></div>
       <div class="field"><label for="password">密码</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
-      <button id="login-button" class="primary" type="submit">进入课程表</button>
+      <button id="login-button" class="primary" type="submit">进入学习空间</button>
       <p id="login-error" class="error" role="alert" aria-live="polite"></p>
       <div class="login-foot">2026–2027 学年 · 第 1 学期</div>
     </form>
@@ -40,9 +44,17 @@
 
   <main id="app" class="app hidden" aria-hidden="true">
     <header class="topbar">
-      <div><p class="eyebrow">ACADEMIC SCHEDULE</p><h1 class="page-title" id="page-title"></h1><p class="subtitle" id="term"></p></div>
+      <div><p class="eyebrow">STUDY SPACE</p><h1 class="page-title" id="page-title">我的学习空间</h1><p class="subtitle" id="term"></p></div>
       <div class="top-actions"><div class="student-chip"><strong id="student"></strong></div><button id="logout" class="ghost" type="button">退出登录</button></div>
     </header>
+    <nav class="main-nav" aria-label="主要版块">
+      <button class="nav-button active" type="button" data-view="schedule" aria-current="page">课表</button>
+      <button class="nav-button" type="button" data-view="one">板块一</button>
+      <button class="nav-button" type="button" data-view="two">板块二</button>
+      <button class="nav-button" type="button" data-view="three">板块三</button>
+      <button class="nav-button" type="button" data-view="settings">设置</button>
+    </nav>
+    <div id="schedule-view">
     <section class="summary" aria-label="课表概览">
       <div class="summary-card accent"><strong>当前视图</strong><div class="big" id="week-summary"></div><p id="course-summary"></p></div>
       <div class="summary-card"><strong>查看提示</strong><p>选择周次后只显示该周的课程。课表依据所提供的 PDF 整理，临时调课请以教务系统最新通知为准。</p></div>
@@ -53,6 +65,18 @@
     </section>
     <div class="below"><section class="note-card"><h2>待定课程</h2><ul id="unscheduled"></ul></section><section class="note-card"><h2>调课提示</h2><ul id="changes"></ul></section></div>
     <p class="site-foot">课程信息根据提供的课表 PDF 整理 · 请以学校最新安排为准</p>
+    </div>
+    <section id="placeholder-view" class="content-card placeholder-card hidden" aria-labelledby="placeholder-title">
+      <div id="placeholder-badge" class="placeholder-badge">01</div>
+      <h2 id="placeholder-title">板块一</h2>
+      <p>这个版块已经预留好，内容可以以后再添加。</p>
+    </section>
+    <section id="settings-view" class="content-card hidden" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">上课时间设置</h2>
+      <p>为第 1～13 节分别填写起始时间。填写后，课表会显示对应课程的开始时间；留空则不显示。设置只保存在当前设备的这个浏览器中。</p>
+      <div id="settings-grid" class="settings-grid"></div>
+      <p id="settings-status" class="settings-status" role="status" aria-live="polite">修改时间后会自动保存。</p>
+    </section>
   </main>
   <script>
     "use strict";
@@ -61,19 +85,55 @@
     let schedule = null;
     const termStart = Date.UTC(2026, 8, 14);
     let selectedWeek = 0;
-    function currentAcademicWeek(){
+    const timeStorageKey = "ranqi.lessonStartTimes.v1";
+    let startTimes = {};
+    function todayInShanghai(){
       const parts = new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
       const values=Object.fromEntries(parts.map(part=>[part.type,part.value]));
-      const today=Date.UTC(Number(values.year),Number(values.month)-1,Number(values.day));
-      return Math.max(1,Math.min(16,Math.floor((today-termStart)/604800000)+1));
+      return Date.UTC(Number(values.year),Number(values.month)-1,Number(values.day));
+    }
+    function currentAcademicWeek(){
+      return Math.max(1,Math.min(16,Math.floor((todayInShanghai()-termStart)/604800000)+1));
     }
     function weekDates(week){
       const start=new Date(termStart+(week-1)*604800000),end=new Date(termStart+(week*604800000)-86400000);
       const label=date=>`${date.getUTCMonth()+1} 月 ${date.getUTCDate()} 日`;
       return `${label(start)}—${label(end)}`;
     }
+    function readStartTimes(){
+      try{
+        const saved=JSON.parse(localStorage.getItem(timeStorageKey)||"{}");
+        if(!saved||typeof saved!=="object"||Array.isArray(saved))return {};
+        return Object.fromEntries(Object.entries(saved).filter(([lesson,time])=>Number(lesson)>=1&&Number(lesson)<=13&&/^\d{2}:\d{2}$/.test(time)));
+      }catch{return {};}
+    }
+    function saveStartTimes(){
+      try{localStorage.setItem(timeStorageKey,JSON.stringify(startTimes));putText("settings-status","已自动保存到当前浏览器。");}
+      catch{putText("settings-status","当前浏览器无法保存设置；本次打开期间仍可使用。");}
+    }
+    function buildSettings(){
+      const grid=$("settings-grid");grid.replaceChildren();
+      for(let lesson=1;lesson<=13;lesson++){
+        const label=make("label","time-setting");label.append(make("span","",`第 ${lesson} 节`));
+        const input=document.createElement("input");input.type="time";input.step=60;input.value=startTimes[lesson]||"";input.setAttribute("aria-label",`第 ${lesson} 节起始时间`);
+        input.addEventListener("change",()=>{if(input.value)startTimes[lesson]=input.value;else delete startTimes[lesson];saveStartTimes();if(schedule)drawCourses(selectedWeek);});
+        label.append(input);grid.append(label);
+      }
+    }
+    function showView(view){
+      $("schedule-view").classList.toggle("hidden",view!=="schedule");
+      $("settings-view").classList.toggle("hidden",view!=="settings");
+      const placeholder=["one","two","three"].includes(view);
+      $("placeholder-view").classList.toggle("hidden",!placeholder);
+      if(placeholder){const number={one:1,two:2,three:3}[view];putText("placeholder-title",`板块${["","一","二","三"][number]}`);putText("placeholder-badge",String(number).padStart(2,"0"));}
+      for(const button of document.querySelectorAll(".nav-button")){
+        const active=button.dataset.view===view;button.classList.toggle("active",active);
+        if(active)button.setAttribute("aria-current","page");else button.removeAttribute("aria-current");
+      }
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
     const icon = kind => {
-      const path = kind === "pin" ? '<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>' : '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>';
+      const path = kind === "pin" ? '<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>' : kind === "clock" ? '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>' : '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>';
       return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
     };
     const decode = value => Uint8Array.from(atob(value), char => char.charCodeAt(0));
@@ -87,11 +147,28 @@
     function putText(id, value){$(id).textContent = value;}
     function make(tag, className, textValue){const node=document.createElement(tag);if(className)node.className=className;if(textValue!==undefined)node.textContent=textValue;return node;}
     function addMeta(parent, kind, label){const row=make("div","course-meta");row.innerHTML=icon(kind);row.append(document.createTextNode(label));parent.append(row);}
+    function drawHeader(week){
+      const head=$("table-head");head.replaceChildren();const row=document.createElement("tr");row.append(make("th","","节次 / 星期"));
+      schedule.days.forEach((dayName,index)=>{
+        const heading=document.createElement("th");heading.append(make("span","",dayName));
+        if(week>0){
+          const date=new Date(termStart+((week-1)*7+index)*86400000);
+          heading.append(make("span","day-date",`${date.getUTCMonth()+1} 月 ${date.getUTCDate()} 日`));
+          if(date.getTime()===todayInShanghai())heading.classList.add("is-today");
+        }
+        row.append(heading);
+      });
+      head.append(row);
+    }
     function drawCourses(week){
+      drawHeader(week);
       const body=$("table-body");body.replaceChildren();
       let count=0;
       for(const slot of schedule.slots){
-        const row=document.createElement("tr");row.append(make("th","",slot.label));
+        const row=document.createElement("tr"),rowHeading=make("th","",slot.label);
+        const slotStart=startTimes[Number(slot.id.split("-")[0])];
+        if(slotStart)rowHeading.append(make("span","slot-time",`${slotStart} 开始`));
+        row.append(rowHeading);
         for(let day=1;day<=7;day++){
           const cell=document.createElement("td");
           const items=schedule.courses.filter(course=>course.day===day&&course.slot===slot.id&&(week===0||course.weekNumbers.includes(week)));
@@ -101,6 +178,8 @@
             const card=make("article","course");card.dataset.tone=course.tone;
             card.append(make("p","course-name",course.name));
             addMeta(card,"calendar",`${course.weeks} · ${course.periods}`);
+            const firstLesson=Number(course.periods.match(/\d+/)?.[0]);
+            if(startTimes[firstLesson])addMeta(card,"clock",`${startTimes[firstLesson]} 开始`);
             addMeta(card,"pin",course.room);
             card.append(make("div","course-code",`课程代码 ${course.code}`));
             cell.append(card);
@@ -124,12 +203,13 @@
     }
     function render(data){
       schedule=data;
-      putText("page-title",data.title);putText("term",data.term);putText("student",data.student);
-      const head=$("table-head");head.replaceChildren();const tr=document.createElement("tr");tr.append(make("th","","节次 / 星期"));for(const day of data.days)tr.append(make("th","",day));head.append(tr);
+      startTimes=readStartTimes();buildSettings();
+      putText("page-title","我的学习空间");putText("term",data.term);putText("student",data.student);
       const picker=$("week");for(let week=1;week<=16;week++){const option=document.createElement("option");option.value=String(week);option.textContent=`第 ${week} 周`;picker.append(option);}
       for(const note of data.unscheduled)$("unscheduled").append(make("li","",note));
       for(const note of data.changes)$("changes").append(make("li","",note));
       setWeek(currentAcademicWeek());
+      showView("schedule");
       $("login").classList.add("hidden");$("app").classList.remove("hidden");$("app").removeAttribute("aria-hidden");$("password").value="";
     }
     $("login-form").addEventListener("submit",async event=>{
@@ -139,12 +219,13 @@
         if($("username").value!=="ranqi")throw new Error("invalid");
         render(await unlock($("password").value));
       }catch(error){putText("login-error","用户名或密码不正确");$("password").value="";$("password").focus();}
-      finally{button.disabled=false;button.textContent="进入课程表";}
+      finally{button.disabled=false;button.textContent="进入学习空间";}
     });
     $("week").addEventListener("change",event=>setWeek(Number(event.target.value)));
     $("prev-week").addEventListener("click",()=>{if(selectedWeek>1)setWeek(selectedWeek-1);});
     $("next-week").addEventListener("click",()=>{if(selectedWeek>0&&selectedWeek<16)setWeek(selectedWeek+1);});
     $("view-toggle").addEventListener("click",()=>setWeek(selectedWeek===0?currentAcademicWeek():0));
+    document.querySelectorAll(".nav-button").forEach(button=>button.addEventListener("click",()=>showView(button.dataset.view)));
     $("logout").addEventListener("click",()=>{schedule=null;selectedWeek=0;$("table-body").replaceChildren();$("table-head").replaceChildren();$("unscheduled").replaceChildren();$("changes").replaceChildren();$("week").replaceChildren(new Option("总课表","0"));$("app").classList.add("hidden");$("app").setAttribute("aria-hidden","true");$("login").classList.remove("hidden");$("login-form").reset();$("username").focus();});
   </script>
 </body>
